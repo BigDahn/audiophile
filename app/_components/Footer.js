@@ -22,10 +22,10 @@ function Footer() {
         </div>
         <div className="flex justify-between w-full items-end">
           <h4 className="font-medium text-[15px] leading-[25px] text-[#979797] max-w-[521px]">
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we’re open 7 days a week.
+            Audiophile is an all in one stop to fulfill your audio needs.
+            We&apos;re a small team of music lovers and sound specialists who
+            are devoted to helping you get the most out of personal audio. Come
+            and visit our demo facility - we&apos;re open 7 days a week.
           </h4>
           <div className="flex gap-3 items-center">
             <Image
