@@ -3,8 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import SharedItemList from "../_components/SharedItemList";
 import SharedSubFooter from "../_components/SharedSubFooter";
+import { getAllSpeakers } from "../_lib/services";
 
-function page() {
+async function page() {
+  const data = await getAllSpeakers();
+
   return (
     <main className="grid gap-[7em] pb-[8em]  ">
       <div className="relative h-[336px]  flex items-center justify-start ">

@@ -1,5 +1,5 @@
 import { Manrope } from "next/font/google";
-import "./global.css";
+import "./_styles/global.css";
 import Heading from "./_components/Heading";
 import Footer from "./_components/Footer";
 
