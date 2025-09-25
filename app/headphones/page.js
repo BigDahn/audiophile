@@ -31,7 +31,7 @@ async function page() {
             const { id, slug, description, name, new: isNew, image } = s;
             const { desktop, mobile, tablet } = image;
 
-            console.log(desktop);
+            console.log(image);
             return (
               <div
                 key={id}
