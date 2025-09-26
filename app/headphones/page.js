@@ -12,7 +12,6 @@ async function page() {
 
   const headphonesData = data.filter((s) => s.category === "headphones");
 
-  console.log(headphonesData);
   return (
     <main className="grid gap-[7em] pb-[8em]  ">
       <div className="relative h-[336px]  flex items-center justify-start ">
@@ -31,7 +30,6 @@ async function page() {
             const { id, slug, description, name, new: isNew, image } = s;
             const { desktop, mobile, tablet } = image;
 
-            console.log(image);
             return (
               <div
                 key={id}
@@ -41,13 +39,7 @@ async function page() {
                     : "w-full h-[560px]rounded-md flex  items-center gap-[125px]"
                 }`}
               >
-                <Image
-                  // src="/assets/shared/desktop/image-xx99-mark-two-headphones.jpg"
-                  src={desktop}
-                  alt="speaker"
-                  width={540}
-                  height={560}
-                />
+                <Image src={desktop} alt={slug} width={540} height={560} />
                 <div className="max-w-[445px]  flex flex-col gap-[2em]">
                   <div className="flex flex-col gap-2">
                     <h1 className="font-normal text-[#D87D4A] text-[14px]">
@@ -61,7 +53,7 @@ async function page() {
                     {description}
                   </p>
                   <Link
-                    href="\headphones"
+                    href={`/headphones/${slug}`}
                     className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
                   >
                     see product

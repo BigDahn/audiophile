@@ -3,8 +3,17 @@ import bg from "@/public/assets/home/desktop/image-hero.jpg";
 import Link from "next/link";
 import SharedItemList from "../_components/SharedItemList";
 import SharedSubFooter from "../_components/SharedSubFooter";
+import { getAllEarPhones } from "../_lib/services";
+import { Suspense } from "react";
+import Loading from "../loading";
 
-function page() {
+async function page({ params }) {
+  const filter = await params;
+  console.log(filter);
+  const data = await getAllEarPhones();
+
+  const earphonesData = data.filter((s) => s.category === "earphones");
+
   return (
     <main className="grid gap-[7em] pb-[8em]  ">
       <div className="relative h-[336px]  flex items-center justify-start ">
@@ -16,40 +25,48 @@ function page() {
           </div>
         </div>
       </div>
-      <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
-        <div className="w-full h-[560px] flex items-center gap-[125px]">
-          <Image
-            src="/assets/shared/desktop/image-yx1-earphones.jpg"
-            alt="speaker"
-            width={540}
-            height={560}
-          />
-          <div className="max-w-[445px] 0 flex flex-col gap-[2em]">
-            <div className="flex flex-col gap-2">
-              <h1 className="font-normal text-[#D87D4A] text-[14px]">
-                NEW PRODUCT
-              </h1>
-              <h3 className="font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase">
-                YX1 WIRELESS EARPHONES
-              </h3>
-            </div>
-            <p className="text-[15px] font-medium leading-[25px]">
-              Tailor your listening experience with bespoke dynamic drivers from
-              the new YX1 Wireless Earphones. Enjoy incredible high-fidelity
-              sound even in noisy environments with its active noise
-              cancellation feature.
-            </p>
-            <Link
-              href="\headphones"
-              className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center "
-            >
-              see product
-            </Link>
-          </div>
-        </div>
-      </section>
-      <SharedItemList />
-      <SharedSubFooter />
+      <Suspense fallback={<Loading />}>
+        <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
+          {earphonesData.map((s, i) => {
+            const { id, slug, description, name, new: isNew, image } = s;
+            const { desktop, mobile, tablet } = image;
+
+            return (
+              <div
+                key={id}
+                className={`${
+                  i % 2 === 1
+                    ? "w-full h-[560px]rounded-md flex flex-row-reverse items-center gap-[125px]"
+                    : "w-full h-[560px]rounded-md flex  items-center gap-[125px]"
+                }`}
+              >
+                <Image src={desktop} alt={slug} width={540} height={560} />
+                <div className="max-w-[445px]  flex flex-col gap-[2em]">
+                  <div className="flex flex-col gap-2">
+                    <h1 className="font-normal text-[#D87D4A] text-[14px]">
+                      {isNew && "NEW PRODUCT"}
+                    </h1>
+                    <h3 className="font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase">
+                      {name}
+                    </h3>
+                  </div>
+                  <p className="text-[15px] font-medium leading-[25px]">
+                    {description}
+                  </p>
+                  <Link
+                    href={`/earphones/${slug}`}
+                    className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
+                  >
+                    see product
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </section>
+        <SharedItemList />
+        <SharedSubFooter />
+      </Suspense>
     </main>
   );
 }

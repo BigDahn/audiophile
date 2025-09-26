@@ -32,7 +32,7 @@ function page() {
                 made for the passionate music enthusiast.
               </p>
               <Link
-                href="\headphones"
+                href="\headphones\xx99-mark-two-headphones"
                 className="uppercase bg-[#D87D4A] text-white w-[160px] h-[48px] flex items-center justify-center font-bold leading-normal tracking-[1px] text-[13px]"
               >
                 see product
@@ -50,7 +50,6 @@ function page() {
               alt="speaker"
               width={410}
               height={483}
-              // className="absolute ml-[13em]"
             />
             <div className=" w-[349px] flex flex-col gap-4 justify-center items-start  ">
               <h2 className="font-bold text-[56px] leading-[58px] tracking-[2px] text-white uppercase">
@@ -61,7 +60,7 @@ function page() {
                 deliver truly remarkable sound.
               </p>
               <Link
-                href="\headphones"
+                href="\speakers\zx9-speaker"
                 className="w-[160px] h-[48px] bg-[#4C4C4C] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center rounded-sm"
               >
                 see product
@@ -73,7 +72,7 @@ function page() {
       <div className="max-w-[1110px]  w-full  mx-auto  h-[284px] justify-center px-[6em] gap-[2em] bg-[url(/assets/home/desktop/image-speaker-zx7.jpg)] bg-center bg-cover bg-no-repeat rounded-md flex flex-col ">
         <h3 className="font-bold text-[28px] tracking-[2px]">ZX7 SPEAKER</h3>
         <Link
-          href="\headphones"
+          href="\speakers\zx7-speaker"
           className="w-[160px] h-[48px] bg-[#000000] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center "
         >
           see product
@@ -92,7 +91,7 @@ function page() {
             YX1 EARPHONES
           </h3>
           <Link
-            href="\headphones"
+            href="\earphones\yx1-earphones"
             className="w-[160px] h-[48px] bg-[#000000] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center "
           >
             see product

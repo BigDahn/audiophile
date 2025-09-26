@@ -1,0 +1,209 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import SharedItemList from "./SharedItemList";
+import SharedSubFooter from "./SharedSubFooter";
+import { useCart } from "../_context/CartContainer";
+
+function SingleProductDetails({ data }) {
+  const { count, cart, dispatch } = useCart();
+
+  const {
+    id,
+    slug,
+    description,
+    name,
+    new: isNew,
+    image,
+    price,
+    features,
+    includes,
+    gallery,
+    others,
+  } = data;
+  const { desktop, mobile, tablet } = image;
+  const { first, second, third } = gallery;
+  console.log(cart);
+
+  const checks = cart?.find((s) => s.name === name)
+    ? cart?.filter((s) => s.name === name)[0]?.quantity
+    : count;
+
+  return (
+    <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
+      {/* product details */}
+      <div
+        className={"w-full h-[560px]rounded-md flex  items-center gap-[125px]"}
+      >
+        <Image
+          src={desktop}
+          alt={slug}
+          width={540}
+          height={560}
+          className="rounded-md"
+        />
+        <div className="max-w-[445px]  flex flex-col gap-[2em]">
+          <div className="flex flex-col gap-2">
+            <h1 className="font-normal text-[#D87D4A] text-[14px]">
+              {isNew && "NEW PRODUCT"}
+            </h1>
+            <h3 className="font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase">
+              {name}
+            </h3>
+          </div>
+          <div className="flex flex-col gap-3">
+            <p className="text-[15px] font-medium leading-[25px]">
+              {description}
+            </p>
+            <p className="font-semibold"> $ {price}</p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-[120px] h-[48px] bg-[#F1F1F1] flex items-center justify-between px-3">
+              <button
+                onClick={() =>
+                  dispatch({ type: "decrease/cart", payload: name })
+                }
+              >
+                -
+              </button>
+              <h2>{checks}</h2>
+              <button
+                onClick={() =>
+                  dispatch({ type: "increase/cart", payload: name })
+                }
+              >
+                +
+              </button>
+            </div>
+            <button
+              href={`/earphones/${slug}`}
+              className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
+              onClick={() =>
+                dispatch({
+                  type: "add/cart",
+                  payload: {
+                    name: name,
+                    quantity: count,
+                    image: desktop,
+                  },
+                })
+              }
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Features and Includes */}
+
+      <div className="flex items-start gap-[120px] ">
+        <article className="max-w-[635px] flex flex-col gap-[2em]">
+          <h3 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
+            Features
+          </h3>
+
+          <div className="flex flex-col gap-3">
+            {features.split("\n").map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        </article>
+
+        <div className="flex flex-col gap-[2em]">
+          <h2 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
+            In the box
+          </h2>
+          <div className="flex flex-col gap-[0.7em]">
+            {includes.map((s) => {
+              const { quantity, item } = s;
+
+              return (
+                <div key={item} className="flex gap-[0.5em] items-center">
+                  <h3 className=" h-[25px] w-[18px text-[#D87D4A] text-[15px] font-bold leading-[25px]">
+                    {quantity}x
+                  </h3>
+                  <h4 className="text-[15px] font-medium leading-[25px] text-black/70">
+                    {item}
+                  </h4>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* preview */}
+
+      <div className="grid grid-cols-[445px_auto] grid-rows-[280px_280px_592px] max-h-[592px] gap-[2em]">
+        <div className="row-start-1 ">
+          <Image
+            src={first.desktop}
+            alt="first"
+            width={445}
+            height={280}
+            quality={100}
+            className="rounded-md"
+          />
+        </div>
+        <div className="">
+          <Image
+            src={second.desktop}
+            alt="first"
+            width={445}
+            height={280}
+            quality={100}
+            className="rounded-md"
+          />
+        </div>
+        <div className="row-start-1 row-span-2 ">
+          <Image
+            src={third.desktop}
+            alt="first"
+            width={635}
+            height={400}
+            quality={100}
+            className="rounded-md"
+          />
+        </div>
+      </div>
+
+      {/* may also like */}
+
+      <div className="grid grid-cols-3 gap-[2em]">
+        {others.map((s) => {
+          const { name, image, slug } = s;
+          const { desktop } = image;
+
+          const ser = slug.split("-");
+          const set = ser[ser.length - 1];
+          console.log(set);
+          return (
+            <div key={name} className="flex flex-col max-h-[471px] gap-6">
+              <Image alt={name} src={desktop} width={350} height={318} />
+              <div className="flex flex-col justify-center items-center gap-4">
+                <h3 className="font-bold text-[24px] tracking-[1.71px]">
+                  {name}
+                </h3>
+                <Link
+                  href={`/${set === "speaker" ? "speakers" : set}/${slug}`}
+                  className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
+                >
+                  see product
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* shared sub-footer */}
+      <SharedItemList />
+      <SharedSubFooter />
+    </section>
+  );
+}
+
+export default SingleProductDetails;
