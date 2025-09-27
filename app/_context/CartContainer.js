@@ -16,7 +16,8 @@ function reducer(state, action) {
       console.log(checkCart);
       return {
         ...state,
-        count: checkCart
+        count: checkCart ? checkCart?.quantity + 1 : state.count + 1,
+        cart: checkCart
           ? state.cart.map((s) => {
               if (s.name === action.payload) {
                 return {
@@ -26,13 +27,25 @@ function reducer(state, action) {
               }
               return s;
             })
-          : state.count + 1,
+          : [...state.cart],
       };
     }
     case "decrease/cart": {
+      const checkCart = state.cart.find((s) => s.name === action.payload);
       return {
         ...state,
-        count: state.count - 1,
+        count: checkCart ? checkCart?.quantity - 1 : state.count - 1,
+        cart: checkCart
+          ? state.cart.map((s) => {
+              if (s.name === action.payload) {
+                return {
+                  ...s,
+                  quantity: s.quantity - 1,
+                };
+              }
+              return s;
+            })
+          : [...state.cart],
       };
     }
     case "add/cart": {

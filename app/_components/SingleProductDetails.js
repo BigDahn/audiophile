@@ -25,6 +25,7 @@ function SingleProductDetails({ data }) {
   const { desktop, mobile, tablet } = image;
   const { first, second, third } = gallery;
   console.log(cart);
+  console.log(count);
 
   const checks = cart?.find((s) => s.name === name)
     ? cart?.filter((s) => s.name === name)[0]?.quantity
@@ -179,7 +180,7 @@ function SingleProductDetails({ data }) {
 
           const ser = slug.split("-");
           const set = ser[ser.length - 1];
-          console.log(set);
+
           return (
             <div key={name} className="flex flex-col max-h-[471px] gap-6">
               <Image alt={name} src={desktop} width={350} height={318} />
