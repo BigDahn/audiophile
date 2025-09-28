@@ -24,12 +24,15 @@ function SingleProductDetails({ data }) {
   } = data;
   const { desktop, mobile, tablet } = image;
   const { first, second, third } = gallery;
-  console.log(cart);
-  console.log(count);
 
   const checks = cart?.find((s) => s.name === name)
     ? cart?.filter((s) => s.name === name)[0]?.quantity
     : count;
+
+  console.log(cart);
+  const cartConfirm = cart?.find((s) => s.name === name);
+
+  // console.log(cartConfirm);
 
   return (
     <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
@@ -83,7 +86,7 @@ function SingleProductDetails({ data }) {
               className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
               onClick={() =>
                 dispatch({
-                  type: "add/cart",
+                  type: cartConfirm ? "remove/cart" : "add/cart",
                   payload: {
                     name: name,
                     quantity: count,
@@ -92,7 +95,7 @@ function SingleProductDetails({ data }) {
                 })
               }
             >
-              Add to Cart
+              {cartConfirm ? "Remove from cart" : " Add to Cart"}
             </button>
           </div>
         </div>
