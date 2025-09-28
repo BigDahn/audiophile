@@ -91,6 +91,7 @@ function SingleProductDetails({ data }) {
                     name: name,
                     quantity: count,
                     image: desktop,
+                    price: price,
                   },
                 })
               }
