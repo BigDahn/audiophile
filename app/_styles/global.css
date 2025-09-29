@@ -1,6 +1,8 @@
 @import 'tailwindcss';
-
-
+/* 
+body{
+    background-color: #F2F2F2;
+} */
 
 .loader {
     width: 48px;

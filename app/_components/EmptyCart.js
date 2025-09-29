@@ -20,10 +20,7 @@ function EmptyCart() {
             Browse our categories and discover our best deals!
           </p>
           <Modal.Button>
-            <button
-              className="w-[160px] mt-2 h-[48px] bg-[#D87D4A] text-white  text-[13px] font-bold tracking-[1px] flex items-center justify-center uppercase "
-              // onClick={() => alert("sdsd")}
-            >
+            <button className="w-[160px] mt-2 h-[48px] bg-[#D87D4A] text-white  text-[13px] font-bold tracking-[1px] flex items-center justify-center uppercase ">
               start shopping
             </button>
           </Modal.Button>

@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { useCart } from "../_context/CartContainer";
+import { reduce } from "../_lib/reduceFunction";
+import Modal from "../_ui/modal";
+import Link from "next/link";
 
 function CartItemList() {
   const { cart } = useCart();
@@ -16,8 +19,9 @@ function CartItemList() {
         <section className="flex flex-col gap-4">
           {cart.map((cart) => {
             const { image, name, price, quantity } = cart;
-
-            console.log(name.split(" "));
+            console.log(name);
+            const set = name.split(" ");
+            console.log();
             return (
               <div
                 key={name}
@@ -27,8 +31,12 @@ function CartItemList() {
                   {" "}
                   <Image width={64} height={64} alt="image" src={image} />
                   <div>
-                    <h3>{name.split(" ")[0]}</h3>
-                    <h5>$ {price}</h5>
+                    <h3 className="font-bold">
+                      {set.splice(0, set.length - 1).join(" ")}
+                    </h3>
+                    <h5 className="font-bold text-[14px] leading-[25px] tracking-[0px] text-gray-400">
+                      $ {new Intl.NumberFormat().format(price)}
+                    </h5>
                   </div>
                 </div>
                 <div className="w-[96px] h-[32px] bg-[#F1F1F1] flex items-center justify-between px-3">
@@ -41,12 +49,19 @@ function CartItemList() {
           })}
         </section>
         <div className="flex justify-between items-center uppercase">
-          <h3>Total</h3>
-          <h5>$ 4000</h5>
+          <h3 className="font-bold text-[15px] leading-[25px] tracking-[0px] text-gray-400">
+            Total
+          </h3>
+          <h5 className="font-bold text-[18px]">$ {reduce(cart)}</h5>
         </div>
-        <button className="bg-[#D87D4A] py-2 text-white uppercase font-bold">
-          checkout
-        </button>
+        <Modal.Button>
+          <Link
+            href="/checkout"
+            className="bg-[#D87D4A] py-2 text-white uppercase font-bold text-center"
+          >
+            checkout
+          </Link>
+        </Modal.Button>
       </div>
     </main>
   );
