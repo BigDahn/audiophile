@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useCart } from "../_context/CartContainer";
+import { reduce } from "../_lib/reduceFunction";
 
-function CartSummary() {
+function CartSummary({ onClick }) {
   const { cart } = useCart();
   return (
     <main className="bg-white py-[1.5em] px-[1.3em] w-[350px] flex flex-col gap-[1.3em] ">
@@ -26,7 +27,7 @@ function CartSummary() {
                   {set.splice(0, set.length - 1).join(" ")}
                 </h3>
                 <h5 className="font-bold text-[14px] leading-[25px] tracking-[0px] text-gray-400">
-                  $ {new Intl.NumberFormat().format(price)}
+                  $ {new Intl.NumberFormat().format(price * quantity)}
                 </h5>
               </div>
             </div>
@@ -36,36 +37,39 @@ function CartSummary() {
           </div>
         );
       })}
-      <section className="flex flex-col gap-2 pt-1">
+      <section className="flex flex-col gap-[1.3em] pt-1">
         <div className="flex flex-col gap-1">
           <div className="flex justify-between items-center">
             <h3 className="uppercase text-[14px] leading-[25px] text-gray-400 font-medium">
               Total
             </h3>
-            <h3>$ 3400</h3>
+            <h3 className="font-bold text-[18px]">$ {reduce(cart)}</h3>
           </div>
           <div className="flex justify-between items-center">
             <h3 className="uppercase text-[14px] leading-[25px] text-gray-400 font-medium">
               shipping
             </h3>
-            <h3>$ 3400</h3>
+            <h3 className="font-bold text-[18px]">$ 50</h3>
           </div>
           <div className="flex justify-between items-center">
             <h3 className="uppercase text-[14px] leading-[25px] text-gray-400 font-medium">
               var(included)
             </h3>
-            <h3>$ 3400</h3>
+            <h3 className="font-bold text-[18px]">$ 1,079</h3>
           </div>
         </div>
         <div className="flex justify-between items-center">
           <h3 className="uppercase text-[14px] leading-[25px] text-gray-400 font-medium">
             grand total
           </h3>
-          <h3 className="text-[#D87D4A]">$ 3400</h3>
+          <h3 className="text-[#D87D4A] font-bold text-[18px]">$ 3400</h3>
         </div>
       </section>
 
-      <button className=" h-[48px] bg-[#D87D4A] flex justify-center items-center">
+      <button
+        onClick={() => onClick()}
+        className=" h-[48px] bg-[#D87D4A] flex justify-center items-center font-bold text-[13px] tracking-[1px] uppercase text-white"
+      >
         continue & pay
       </button>
     </main>
