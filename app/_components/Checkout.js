@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { useForm, useFormContext } from "react-hook-form";
 
-function Checkout({ onSubmit }) {
+import { useFormContext } from "react-hook-form";
+
+function Checkout() {
   const {
     register,
     watch,
@@ -12,7 +12,6 @@ function Checkout({ onSubmit }) {
   } = useFormContext();
 
   const radioValue = watch("payment");
-  // console.log(radioValue);
 
   return (
     <main className="w-[730px] bg-white px-[2em] py-[3em] rounded-md flex flex-col gap-[2em] ">

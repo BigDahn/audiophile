@@ -3,8 +3,15 @@
 import Checkout from "./Checkout";
 import CartSummary from "./CartSummary";
 import { FormProvider, useForm } from "react-hook-form";
+import { useCart } from "../_context/CartContainer";
+import Modal from "../_ui/modal";
+import EmptyCart from "./EmptyCart";
 
 function CartCheckout() {
+  const { cart } = useCart();
+
+  console.log(cart);
+
   const methods = useForm({
     mode: "onSubmit",
   });
@@ -21,7 +28,15 @@ function CartCheckout() {
         >
           {" "}
           <Checkout />
-          <CartSummary />
+          {cart.length >= 1 ? (
+            <CartSummary />
+          ) : (
+            <div>
+              <Modal>
+                <EmptyCart />
+              </Modal>
+            </div>
+          )}
         </form>
       </FormProvider>
     </main>

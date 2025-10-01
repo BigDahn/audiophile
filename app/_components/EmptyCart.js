@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import Modal from "../_ui/modal";
+import Link from "next/link";
 
 function EmptyCart() {
   return (
@@ -20,9 +21,12 @@ function EmptyCart() {
             Browse our categories and discover our best deals!
           </p>
           <Modal.Button>
-            <button className="w-[160px] mt-2 h-[48px] bg-[#D87D4A] text-white  text-[13px] font-bold tracking-[1px] flex items-center justify-center uppercase ">
+            <Link
+              href="/"
+              className="w-[160px] mt-2 h-[48px] bg-[#D87D4A] text-white  text-[13px] font-bold tracking-[1px] flex items-center justify-center uppercase "
+            >
               start shopping
-            </button>
+            </Link>
           </Modal.Button>
         </div>
       </div>

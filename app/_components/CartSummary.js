@@ -5,6 +5,7 @@ import { useCart } from "../_context/CartContainer";
 import { reduce } from "../_lib/reduceFunction";
 import { useForm, useFormContext } from "react-hook-form";
 import Modal from "../_ui/modal";
+import Link from "next/link";
 
 function CartSummary() {
   const {
@@ -86,8 +87,72 @@ function CartSummary() {
           </div>
         </Modal.Open>
         <Modal.ModalWindow open="checkout">
-          <main className=" fixed inset-0 z-[9999] top-[8em] left-[45em]">
-            sdsd
+          <main className=" fixed inset-0 z-[9999] top-[3em] mx-auto w-[500px] h-fit bg-white flex flex-col gap-[2em] px-[2em] py-[2.3em]">
+            <Image
+              src="/assets/checkout/icon-order-confirmation.svg"
+              alt="confirm"
+              width={64}
+              height={64}
+            />
+            <div className="flex flex-col gap-2">
+              <h3 className="font-bold text-[32px] leading-[36px] tracking-[1.14px] uppercase ">
+                Thank you <br />
+                for your order
+              </h3>
+              <p className="font-medium text-[15px] leading-[25px]">
+                You will receive an email confirmation shortly.
+              </p>
+            </div>
+            <div className="w-[440px]  rounded-md bg-[#F1F1F1] flex  justify-between">
+              <div>
+                {cart.map((cart) => {
+                  const { image, name, quantity, price } = cart;
+                  const set = name.split(" ");
+                  return (
+                    <div
+                      key={name}
+                      className="flex  items-start justify-between gap-[3em] py-3 px-3"
+                    >
+                      <div className="flex gap-1">
+                        <Image
+                          alt="property"
+                          src={image}
+                          width={50}
+                          height={50}
+                        />
+                        <div>
+                          <h3 className="font-bold">
+                            {set.splice(0, set.length - 1).join(" ")}
+                          </h3>
+                          <h5 className="font-bold text-[14px] leading-[25px] tracking-[0px] text-gray-400">
+                            $ {new Intl.NumberFormat().format(price)}
+                          </h5>
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-[15px] leading-[25px]">
+                          x{quantity}
+                        </h3>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="bg-black w-[198px] rounded-tr-md rounded-br-md flex flex-col justify-end py-[2em] gap-[1em] items-start px-[2em]">
+                <h3 className="font-medium text-[15px] leading-[25px] text-gray-400 uppercase ">
+                  grand total
+                </h3>
+                <h3 className="font-bold text-[18px] leading-[25px] text-white uppercase ">
+                  $ 4,009
+                </h3>
+              </div>
+            </div>
+            <Link
+              href="/"
+              className="uppercase bg-[#D87D4A] hover:bg-[#FBAF85] w-full h-[48px] py-3 text-white text-[13px] tracking-[1px] font-bold flex items-center justify-center"
+            >
+              back to home
+            </Link>
           </main>
         </Modal.ModalWindow>
       </Modal>

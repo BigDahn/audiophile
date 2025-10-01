@@ -18,10 +18,3 @@ function page() {
 }
 
 export default page;
-{
-  /* <div>
-  <Modal>
-    <EmptyCart />
-  </Modal>
-</div>; */
-}
