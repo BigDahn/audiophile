@@ -3,9 +3,19 @@
 import Image from "next/image";
 import { useCart } from "../_context/CartContainer";
 import { reduce } from "../_lib/reduceFunction";
+import { useForm, useFormContext } from "react-hook-form";
+import Modal from "../_ui/modal";
 
-function CartSummary({ onClick }) {
+function CartSummary() {
+  const {
+    formState: { errors, isSubmitted },
+  } = useFormContext();
   const { cart } = useCart();
+
+  const hasErrors = isSubmitted && Object.keys(errors).length >= 1;
+
+  const ane = hasErrors ? "checkouts" : "checkout";
+
   return (
     <main className="bg-white py-[1.5em] px-[1.3em] w-[350px] flex flex-col gap-[1.3em] ">
       <h3 className="text-bold text-[18px] tracking-[1.29px] uppercase">
@@ -66,12 +76,21 @@ function CartSummary({ onClick }) {
         </div>
       </section>
 
-      <button
-        onClick={() => onClick()}
-        className=" h-[48px] bg-[#D87D4A] flex justify-center items-center font-bold text-[13px] tracking-[1px] uppercase text-white"
-      >
-        continue & pay
-      </button>
+      <Modal>
+        <Modal.Open open={isSubmitted && ane}>
+          <div
+            type="submit"
+            className=" h-[48px] bg-[#D87D4A] flex justify-center items-center font-bold text-[13px] tracking-[1px] uppercase text-white"
+          >
+            continue & pay
+          </div>
+        </Modal.Open>
+        <Modal.ModalWindow open="checkout">
+          <main className=" fixed inset-0 z-[9999] top-[8em] left-[45em]">
+            sdsd
+          </main>
+        </Modal.ModalWindow>
+      </Modal>
     </main>
   );
 }
