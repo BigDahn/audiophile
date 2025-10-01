@@ -46,7 +46,7 @@ function ModalWindow({ children, open: OpenModal, style }) {
   if (openName !== OpenModal) return null;
   return isMounted
     ? createPortal(
-        <main className="bg-black/50 fixed inset-0 h-screen w-screen flex m-auto">
+        <main className="bg-black/50 fixed inset-0 z-[99999999] h-screen w-screen flex m-auto">
           <div className={style}>
             {children}
             {/* {cloneElement(children, { onClick: (e) => console.log(e) })} */}

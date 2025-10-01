@@ -14,7 +14,7 @@ function CartSummary() {
 
   const hasErrors = isSubmitted && Object.keys(errors).length >= 1;
 
-  const ane = hasErrors ? "checkouts" : "checkout";
+  const name = hasErrors ? "" : "checkout";
 
   return (
     <main className="bg-white py-[1.5em] px-[1.3em] w-[350px] flex flex-col gap-[1.3em] ">
@@ -77,7 +77,7 @@ function CartSummary() {
       </section>
 
       <Modal>
-        <Modal.Open open={isSubmitted && ane}>
+        <Modal.Open open={isSubmitted && name}>
           <div
             type="submit"
             className=" h-[48px] bg-[#D87D4A] flex justify-center items-center font-bold text-[13px] tracking-[1px] uppercase text-white"
