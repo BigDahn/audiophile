@@ -54,13 +54,11 @@ function CartCheckout() {
               )
               .then(
                 () => {
-                  console.log("SUCCESS!");
                   open("checkout");
                   toast.success("order confirmation sent to mail");
                   toast.success("order confirmation sent to mail");
                 },
                 (error) => {
-                  console.log("FAILED...", error);
                   open("");
                   toast.error("There was an error.. Try again");
                   toast.error("There was an error.. Try again");
