@@ -8,7 +8,6 @@ import { Modal } from "../_ui/modal";
 function Providers({ children }) {
   return (
     <>
-      {" "}
       <ToastContainer
         position="top-right"
         autoClose={3000}

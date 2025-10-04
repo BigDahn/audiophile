@@ -45,7 +45,7 @@ function CartCheckout() {
           resolve(
             emailjs
               .send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE,
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
                 process.env.NEXT_PUBLIC_TEMPLATE_ID,
                 formdata,
                 {

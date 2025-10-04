@@ -11,7 +11,9 @@ function Navigation() {
     <div className="flex gap-4 text-[#FFFFFF] font-bold">
       <Link
         href="/"
-        className={`hover:text-[#D87D4A] ${path === "" && "text-[#D87D4A] "}  `}
+        className={`hover:text-[#D87D4A] ${
+          path === "" && "text-[#D87D4A] "
+        }  font-bold text-[13px] leading-[25px] tracking-[2px] `}
       >
         HOME
       </Link>
@@ -19,7 +21,7 @@ function Navigation() {
         href="/headphones"
         className={`hover:text-[#D87D4A] ${
           path === "headphones" && "text-[#D87D4A] "
-        }  `}
+        } font-bold text-[13px] leading-[25px] tracking-[2px] `}
       >
         HEADPHONES
       </Link>
@@ -27,7 +29,7 @@ function Navigation() {
         href="/speakers"
         className={`hover:text-[#D87D4A] ${
           path === "speakers" && "text-[#D87D4A] "
-        }  `}
+        } font-bold text-[13px] leading-[25px] tracking-[2px] `}
       >
         SPEAKERS
       </Link>
@@ -35,7 +37,7 @@ function Navigation() {
         href="/earphones"
         className={`hover:text-[#D87D4A] ${
           path === "earphones" && "text-[#D87D4A] "
-        }  `}
+        } font-bold text-[13px] leading-[25px] tracking-[2px] `}
       >
         EARPHONES
       </Link>

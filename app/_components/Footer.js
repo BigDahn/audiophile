@@ -13,9 +13,10 @@ function Footer() {
   return (
     <main className="bg-[#101010] h-[365px] ">
       <div className="max-w-[1110px] mx-auto flex flex-col justify-center gap-[3em] items-start h-full relative ">
-        {path === "" && (
-          <div className="w-[104px] border-b-[#D87D4A] border-b-4 absolute top-[0em] ml-[0.2em]"></div>
-        )}
+        {path === "" ||
+          (path === "checkout" && (
+            <div className="w-[104px] border-b-[#D87D4A] border-b-4 absolute top-[0em] ml-[0.2em]"></div>
+          ))}
         <div className="flex justify-between w-full">
           <Logo />
           <Navigation />

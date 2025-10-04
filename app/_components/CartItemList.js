@@ -5,6 +5,9 @@ import { useCart } from "../_context/CartContainer";
 import { reduce } from "../_lib/reduceFunction";
 import { Modal } from "../_ui/modal";
 import Link from "next/link";
+import { toast } from "react-toastify";
+
+// {This is the car modal... contains the items in the cart modal}
 
 function CartItemList() {
   const { cart, dispatch } = useCart();
@@ -15,7 +18,11 @@ function CartItemList() {
         <header className="flex justify-between">
           <h3 className="uppercase font-bold">Cart({cart.length})</h3>
           <button
-            onClick={() => dispatch({ type: "remove/all" })}
+            onClick={() => {
+              dispatch({ type: "remove/all" });
+              toast.success("Items removed from cart");
+              toast.success("Items removed from cart");
+            }}
             className="capitalize font-normal"
           >
             remove all
