@@ -3,25 +3,30 @@
 import Image from "next/image";
 import { useCart } from "../_context/CartContainer";
 import { reduce } from "../_lib/reduceFunction";
-import Modal from "../_ui/modal";
+import { Modal } from "../_ui/modal";
 import Link from "next/link";
 
 function CartItemList() {
-  const { cart } = useCart();
+  const { cart, dispatch } = useCart();
 
   return (
     <main className="w-[377px] bg-white flex flex-col  m-auto rounded-md ">
       <div className="px-6 flex flex-col gap-[1.4em] py-4">
         <header className="flex justify-between">
           <h3 className="uppercase font-bold">Cart({cart.length})</h3>
-          <button className="capitalize font-normal">remove all</button>
+          <button
+            onClick={() => dispatch({ type: "remove/all" })}
+            className="capitalize font-normal"
+          >
+            remove all
+          </button>
         </header>
         <section className="flex flex-col gap-4">
           {cart.map((cart) => {
             const { image, name, price, quantity } = cart;
-            console.log(name);
+
             const set = name.split(" ");
-            console.log();
+
             return (
               <div
                 key={name}
@@ -40,9 +45,21 @@ function CartItemList() {
                   </div>
                 </div>
                 <div className="w-[96px] h-[32px] bg-[#F1F1F1] flex items-center justify-between px-3">
-                  <button>-</button>
+                  <button
+                    onClick={() =>
+                      dispatch({ type: "decrease/cart", payload: name })
+                    }
+                  >
+                    -
+                  </button>
                   <h3>{quantity}</h3>
-                  <button>+</button>
+                  <button
+                    onClick={() =>
+                      dispatch({ type: "increase/cart", payload: name })
+                    }
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             );
@@ -52,7 +69,9 @@ function CartItemList() {
           <h3 className="font-bold text-[15px] leading-[25px] tracking-[0px] text-gray-400">
             Total
           </h3>
-          <h5 className="font-bold text-[18px]">$ {reduce(cart)}</h5>
+          <h5 className="font-bold text-[18px]">
+            $ {new Intl.NumberFormat().format(reduce(cart))}
+          </h5>
         </div>
         <Modal.Button>
           <Link

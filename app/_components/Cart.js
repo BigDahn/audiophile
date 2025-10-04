@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Modal from "../_ui/modal";
+import { Modal } from "../_ui/modal";
 import { Link } from "lucide-react";
 import { useCart } from "../_context/CartContainer";
 import EmptyCart from "./EmptyCart";
@@ -10,7 +10,7 @@ import CartItemList from "./CartItemList";
 function Cart() {
   const { cart } = useCart();
   return (
-    <Modal>
+    <>
       <Modal.Open open="modal">
         <Image
           src="/assets/shared/desktop/icon-cart.svg"
@@ -31,11 +31,7 @@ function Cart() {
           {cart.length < 1 ? <EmptyCart /> : <CartItemList />}
         </main>
       </Modal.ModalWindow>
-    </Modal>
-    //   <button onClick={() => alert("hello")}>
-
-    //   </button>
-    //
+    </>
   );
 }
 

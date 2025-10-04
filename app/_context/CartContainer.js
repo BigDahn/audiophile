@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 const CartContext = createContext();
 
@@ -63,6 +63,12 @@ function reducer(state, action) {
         ...state,
         cart: state.cart.filter((cart) => cart.name !== action.payload.name),
         count: 1,
+      };
+    }
+    case "remove/all": {
+      return {
+        count: 1,
+        cart: [],
       };
     }
     default:

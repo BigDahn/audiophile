@@ -2,7 +2,8 @@ import { Manrope } from "next/font/google";
 import "./_styles/global.css";
 import Heading from "./_components/Heading";
 import Footer from "./_components/Footer";
-import { CartContainer } from "./_context/CartContainer";
+
+import Providers from "./_components/Providers";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -20,11 +21,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${manrope.className}  min-h-screen flex flex-col antialiased  `}
       >
-        <CartContainer>
+        <Providers>
           <Heading />
           <main className="relative flex-grow overflow-hidden">{children}</main>
           <Footer />
-        </CartContainer>
+        </Providers>
       </body>
     </html>
   );

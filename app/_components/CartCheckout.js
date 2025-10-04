@@ -4,20 +4,75 @@ import Checkout from "./Checkout";
 import CartSummary from "./CartSummary";
 import { FormProvider, useForm } from "react-hook-form";
 import { useCart } from "../_context/CartContainer";
-import Modal from "../_ui/modal";
+import { Modal, CartModalContext } from "../_ui/modal";
+
 import EmptyCart from "./EmptyCart";
+import emailjs from "@emailjs/browser";
+import { reduce } from "../_lib/reduceFunction";
+import { useContext } from "react";
+import { nanoid } from "nanoid";
+import { shipping, VAT } from "../_lib/constants";
+import { toast } from "react-toastify";
 
 function CartCheckout() {
   const { cart } = useCart();
+  const { open } = useContext(CartModalContext);
 
-  console.log(cart);
+  const total = reduce(cart);
+  const vat = VAT(total);
 
   const methods = useForm({
     mode: "onSubmit",
   });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    const id = nanoid();
+    const formdata = {
+      order_id: id,
+      orders: cart,
+      email: data.Email,
+      total: new Intl.NumberFormat().format(total),
+      cost: {
+        shipping: shipping,
+        Grand_Total: new Intl.NumberFormat().format(total + shipping),
+        vat: new Intl.NumberFormat().format(vat),
+      },
+    };
+
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve(
+            emailjs
+              .send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE,
+                process.env.NEXT_PUBLIC_TEMPLATE_ID,
+                formdata,
+                {
+                  publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+                }
+              )
+              .then(
+                () => {
+                  console.log("SUCCESS!");
+                  open("checkout");
+                  toast.success("order confirmation sent to mail");
+                  toast.success("order confirmation sent to mail");
+                },
+                (error) => {
+                  console.log("FAILED...", error);
+                  open("");
+                  toast.error("There was an error.. Try again");
+                  toast.error("There was an error.. Try again");
+                }
+              )
+          ),
+        1000
+      );
+    });
+  };
   const onError = (errors) => {
-    console.log("Errors:", errors); // Check if this logs
+    console.log("Errors:", errors);
   };
   return (
     <main>
@@ -32,9 +87,7 @@ function CartCheckout() {
             <CartSummary />
           ) : (
             <div>
-              <Modal>
-                <EmptyCart />
-              </Modal>
+              <EmptyCart />
             </div>
           )}
         </form>

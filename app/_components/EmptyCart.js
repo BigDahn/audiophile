@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import React from "react";
-import Modal from "../_ui/modal";
+
+import { Modal } from "../_ui/modal";
 import Link from "next/link";
 
 function EmptyCart() {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import SharedItemList from "./SharedItemList";
 import SharedSubFooter from "./SharedSubFooter";
 import { useCart } from "../_context/CartContainer";
-
+import { toast } from "react-toastify";
 function SingleProductDetails({ data }) {
   const { count, cart, dispatch } = useCart();
 
@@ -29,10 +29,7 @@ function SingleProductDetails({ data }) {
     ? cart?.filter((s) => s.name === name)[0]?.quantity
     : count;
 
-  console.log(cart);
   const cartConfirm = cart?.find((s) => s.name === name);
-
-  // console.log(cartConfirm);
 
   return (
     <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
@@ -60,41 +57,61 @@ function SingleProductDetails({ data }) {
             <p className="text-[15px] font-medium leading-[25px]">
               {description}
             </p>
-            <p className="font-semibold"> $ {price}</p>
+            <p className="font-semibold">
+              {" "}
+              $ {new Intl.NumberFormat().format(price)}
+            </p>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="w-[120px] h-[48px] bg-[#F1F1F1] flex items-center justify-between px-3">
               <button
-                onClick={() =>
-                  dispatch({ type: "decrease/cart", payload: name })
-                }
+                onClick={() => {
+                  dispatch({ type: "decrease/cart", payload: name });
+                  toast.info(`${name} quantity decreased`);
+                }}
               >
                 -
               </button>
               <h2>{checks}</h2>
               <button
-                onClick={() =>
-                  dispatch({ type: "increase/cart", payload: name })
-                }
+                onClick={() => {
+                  dispatch({ type: "increase/cart", payload: name });
+                  toast.info(`${name} quantity increased`);
+                }}
               >
                 +
               </button>
             </div>
             <button
-              href={`/earphones/${slug}`}
+              type="button"
+              // href={`/earphones/${slug}`}
               className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
-              onClick={() =>
-                dispatch({
-                  type: cartConfirm ? "remove/cart" : "add/cart",
-                  payload: {
-                    name: name,
-                    quantity: count,
-                    image: desktop,
-                    price: price,
-                  },
-                })
-              }
+              onClick={() => {
+                const toastId = toast("", {
+                  autoClose: false,
+                  className: "invisible-toast",
+                  hideProgressBar: true,
+                  closeButton: false,
+                });
+                setTimeout(() => {
+                  toast.dismiss(toastId);
+                  toast.success(
+                    cartConfirm
+                      ? `${name} is removed from the cart`
+                      : `${name} is added to the cart`
+                  );
+                  dispatch({
+                    type: cartConfirm ? "remove/cart" : "add/cart",
+                    payload: {
+                      name: name,
+                      quantity: count,
+                      image: desktop,
+                      price: price,
+                    },
+                  });
+                }, 0);
+              }}
             >
               {cartConfirm ? "Remove from cart" : " Add to Cart"}
             </button>

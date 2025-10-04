@@ -12,10 +12,10 @@ import { createPortal } from "react-dom";
 const CartModalContext = createContext();
 
 function Modal({ children }) {
-  const [openName, setOpenName] = useState();
+  const [openName, setOpenName] = useState("");
 
   const open = setOpenName;
-  const close = () => setOpenName();
+  const close = () => setOpenName("");
 
   return (
     <CartModalContext.Provider value={{ open, openName, close }}>
@@ -26,7 +26,7 @@ function Modal({ children }) {
 
 function Open({ open: OpenModal, children }) {
   const { open, openName, close } = useContext(CartModalContext);
-  console.log(OpenModal);
+
   function handleClick() {
     openName === "" || openName !== OpenModal ? open(OpenModal) : close();
   }
@@ -63,4 +63,4 @@ Modal.Open = Open;
 Modal.ModalWindow = ModalWindow;
 Modal.Button = Button;
 
-export default Modal;
+export { Modal, CartModalContext };
