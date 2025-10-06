@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Modal } from "../_ui/modal";
-import { Link } from "lucide-react";
+
 import { useCart } from "../_context/CartContainer";
 import EmptyCart from "./EmptyCart";
 import CartItemList from "./CartItemList";
@@ -26,10 +26,11 @@ function Cart() {
           </div>
         )}
       </Modal.Open>
-      <Modal.ModalWindow open="modal">
-        <main className=" fixed inset-0 z-[9999] top-[8em] left-[45em]">
-          {cart.length < 1 ? <EmptyCart /> : <CartItemList />}
-        </main>
+      <Modal.ModalWindow
+        open="modal"
+        style="fixed  h-fit w-fit  z-[9999] top-[11%] left-[61%]"
+      >
+        {cart.length < 1 ? <EmptyCart /> : <CartItemList />}
       </Modal.ModalWindow>
     </>
   );

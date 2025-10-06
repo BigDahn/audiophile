@@ -8,6 +8,7 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
+import { useOutSideClick } from "../_hooks/useOutSideClick";
 
 const CartModalContext = createContext();
 
@@ -35,19 +36,21 @@ function Open({ open: OpenModal, children }) {
 }
 
 function ModalWindow({ children, open: OpenModal, style }) {
+  const { openName, close } = useContext(CartModalContext);
+  const ref = useOutSideClick(close, true);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const { openName, close } = useContext(CartModalContext);
-
   if (openName !== OpenModal) return null;
   return isMounted
     ? createPortal(
-        <main className="bg-black/50 fixed inset-0 z-[99999999] h-screen w-screen flex m-auto">
-          <div className={style}>{children}</div>
+        <main className="bg-black/50 fixed top-0 left-0 z-[99999999] h-screen w-screen flex m-auto">
+          <div ref={ref} className={style}>
+            {children}
+          </div>
         </main>,
         document.body
       )

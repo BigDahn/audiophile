@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function EmptyCart() {
   return (
-    <main className="w-[377px] bg-white max-h-[488px] flex flex-col  m-auto rounded-md ">
+    <main className="max-w-[377px] bg-white max-h-[488px] flex flex-col  m-auto rounded-md ">
       <div className="flex flex-col gap-4 justify-center w-full items-center px-5 py-5">
         <Image
           src="/assets/shared/desktop/empty-cart.svg"
