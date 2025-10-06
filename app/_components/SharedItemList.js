@@ -1,8 +1,34 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
+
+const fadeInVariation = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.05,
+      type: "bounce",
+    },
+  },
+};
 
 function SharedItemList() {
   return (
-    <div className="max-w-[1110px] flex w-full  mx-auto justify-between h-[284px] items-end  my-[3em]">
+    <motion.div
+      variants={fadeInVariation}
+      initial="initial"
+      whileInView="animate"
+      viewport={{
+        once: true,
+      }}
+      className="max-w-[1110px] flex w-full  mx-auto justify-between h-[284px] items-end  my-[3em]"
+    >
       <div className="bg-[#F1F1F1] rounded-md  w-[350px] h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
@@ -84,7 +110,7 @@ function SharedItemList() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

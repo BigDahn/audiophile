@@ -98,7 +98,7 @@ function page() {
           </Link>
         </div>
       </div>
-      <SharedSubFooter />
+      <SharedSubFooter style="max-w-[1110px]  w-full  mx-auto  h-[588px] rounded-md flex gap-[9em] my-[4em] " />
     </div>
   );
 }

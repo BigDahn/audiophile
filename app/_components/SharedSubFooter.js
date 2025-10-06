@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-function SharedSubFooter() {
+function SharedSubFooter({ style }) {
   return (
-    <div className="max-w-[1110px]  w-full  mx-auto  h-[588px] rounded-md flex gap-[9em] my-[9em] ">
+    <div className={style}>
       <div className="flex flex-col justify-center max-w-[445px] gap-[2em]">
         <h3 className="font-bold text-[40px] uppercase leading-[44px] tracking-[1.43px]">
           Bringing you the <span className="text-[#D87D4A]">best</span> audio
