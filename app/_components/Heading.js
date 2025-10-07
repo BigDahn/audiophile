@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import Cart from "./Cart";
 import { useState } from "react";
 import { useParams, usePathname } from "next/navigation";
+import Image from "next/image";
 
 function Heading() {
   const page = usePathname();
@@ -23,30 +24,40 @@ function Heading() {
       <header
         className={`${
           page === "/" && pageScroll > 0
-            ? "fixed z-[9999]  w-full bg-black "
+            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
             : pageScroll > 0 && page !== "/"
-            ? "fixed z-[9999]  w-full bg-black"
+            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
             : keyValue.length !== 1 && page !== "/"
-            ? "fixed z-[9999]  w-full bg-black"
+            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
             : keyValue.length === 1
-            ? "fixed z-[9999]  w-full bg-black"
-            : "fixed z-[9999]  w-full "
+            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
+            : "fixed z-[9999]  w-full px-[1em] lg:px-0 "
         }`}
       >
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.5 }}
+          viewport={{
+            once: false,
+          }}
           className={`${
             pageScroll === 0 && keyValue.length !== 1 && page !== "/checkout"
-              ? "flex  justify-between pb-[2.5em] pt-[2em]   max-w-[1110px] mx-auto z-[999] border-b-[#ffff] border-b-2  "
+              ? " px-[1em] flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] border-b-[#ffff] border-b-2  "
               : page === "/checkout"
-              ? "flex  justify-between pb-[2.5em] pt-[2em]   max-w-[1110px] mx-auto z-[999]"
-              : "flex  justify-between pb-[2.5em] pt-[2em]   max-w-[1110px] mx-auto z-[999] "
+              ? "flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999]"
+              : "flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] "
           }`}
         >
+          <Image
+            alt="hamburger"
+            src="/assets/shared/mobile/icon-hamburger.svg"
+            width={26}
+            height={10}
+            className="lg:hidden"
+          />
           <Logo />
-          <Navigation />
+          <Navigation style=" hidden lg:flex gap-4 text-[#FFFFFF] font-bold" />
           <Cart />
         </motion.div>
       </header>

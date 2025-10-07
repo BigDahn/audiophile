@@ -28,17 +28,31 @@ function SharedItemList() {
       viewport={{
         once: false,
       }}
-      className="max-w-[1110px] flex w-full  mx-auto justify-between h-[284px] items-end  my-[3em]"
+      className="max-w-[327px] lg:max-w-[1110px] flex flex-col items-center gap-[5em] lg:flex lg:flex-row w-full  mx-auto lg:justify-between lg:h-[284px] lg:items-end  my-[3em] lg:my-[3em]"
     >
-      <div className="bg-[#F1F1F1] rounded-md  w-[350px] h-[204px] flex flex-col items-center justify-evenly  relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
           alt="headphone"
           width="210"
           height="160"
-          className="absolute mb-[8em]"
+          className="lg:flex lg:absolute lg:mb-[8em] hidden"
         />
-        <div className=" mt-[6em] flex flex-col gap-2">
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+          alt="headphone"
+          width="170"
+          height="120"
+          className="absolute mb-[8em] md:hidden"
+        />
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+          alt="headphone"
+          width="210"
+          height="160"
+          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+        />
+        <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             HeadPhones
           </h3>
@@ -57,15 +71,29 @@ function SharedItemList() {
           </div>
         </div>
       </div>
-      <div className="bg-[#F1F1F1] rounded-md  w-[350px] h-[204px] flex flex-col items-center justify-center relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
           alt="speakers"
           width="210"
           height="160"
-          className="absolute mb-[8em]"
+          className="lg:flex lg:absolute lg:mb-[8em] hidden"
         />
-        <div className=" mt-[6em] flex flex-col gap-2">
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
+          alt="speakers"
+          width="170"
+          height="120"
+          className="absolute mb-[8em] md:hidden"
+        />
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
+          alt="speakers"
+          width="210"
+          height="160"
+          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+        />
+        <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             speakers
           </h3>
@@ -84,15 +112,29 @@ function SharedItemList() {
           </div>
         </div>
       </div>
-      <div className="bg-[#F1F1F1] rounded-md  w-[350px] h-[204px] flex flex-col items-center justify-center relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
           alt="earphones"
           width="210"
           height="160"
-          className="absolute mb-[8em]"
+          className="lg:flex lg:absolute lg:mb-[8em] hidden"
         />
-        <div className=" mt-[6em] flex flex-col gap-2">
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+          alt="earphones"
+          width="170"
+          height="120"
+          className="absolute mb-[8em] md:hidden"
+        />
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+          alt="earphones"
+          width="210"
+          height="160"
+          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+        />
+        <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             earphones
           </h3>

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function Navigation() {
+function Navigation({ style }) {
   const pathName = usePathname();
   const path = pathName.replace("/", "");
 
   return (
-    <div className="flex gap-4 text-[#FFFFFF] font-bold">
+    <div className={style}>
       <Link
         href="/"
         className={`hover:text-[#D87D4A] ${
