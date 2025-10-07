@@ -1,8 +1,35 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "motion/react";
+
+const FadeInVariant = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: 0.07,
+      type: "linear",
+    },
+  },
+};
 
 function SharedSubFooter({ style }) {
   return (
-    <div className={style}>
+    <motion.div
+      variants={FadeInVariant}
+      initial="initial"
+      whileInView="animate"
+      viewport={{
+        once: false,
+      }}
+      className={style}
+    >
       <div className="flex flex-col justify-center max-w-[445px] gap-[2em]">
         <h3 className="font-bold text-[40px] uppercase leading-[44px] tracking-[1.43px]">
           Bringing you the <span className="text-[#D87D4A]">best</span> audio
@@ -25,7 +52,7 @@ function SharedSubFooter({ style }) {
           fill
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

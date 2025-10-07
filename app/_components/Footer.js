@@ -6,11 +6,10 @@ import Logo from "./Logo";
 import Image from "next/image";
 import Navigation from "./Navigation";
 
+import { motion } from "motion/react";
+
 function Footer() {
   const pathName = usePathname();
-  // const path = pathName.replace("/", "");
-
-  console.log(pathName);
 
   return (
     <main className="bg-[#101010] h-[365px] ">
@@ -18,10 +17,24 @@ function Footer() {
         {(pathName === "/" || pathName === "/checkout") && (
           <div className="w-[104px] border-b-[#D87D4A] border-b-4 absolute top-[0em] ml-[0.2em]"></div>
         )}
-        <div className="flex justify-between w-full">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            delay: 0.06,
+            type: "linear",
+          }}
+          viewport={{
+            once: false,
+          }}
+          className="flex justify-between w-full"
+        >
           <Logo />
           <Navigation />
-        </div>
+        </motion.div>
         <div className="flex justify-between w-full items-end">
           <h4 className="font-medium text-[15px] leading-[25px] text-[#979797] max-w-[521px]">
             Audiophile is an all in one stop to fulfill your audio needs.

@@ -12,8 +12,9 @@ const fadeInVariation = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05,
-      type: "bounce",
+      duration: 0.8,
+      delay: 0.07,
+      type: "linear",
     },
   },
 };
@@ -25,7 +26,7 @@ function SharedItemList() {
       initial="initial"
       whileInView="animate"
       viewport={{
-        once: true,
+        once: false,
       }}
       className="max-w-[1110px] flex w-full  mx-auto justify-between h-[284px] items-end  my-[3em]"
     >
