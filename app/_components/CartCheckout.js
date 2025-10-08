@@ -38,6 +38,7 @@ function CartCheckout() {
         vat: new Intl.NumberFormat().format(vat),
       },
     };
+    // open("checkout");
 
     return new Promise((resolve) => {
       setTimeout(
@@ -76,7 +77,7 @@ function CartCheckout() {
     <main>
       <FormProvider {...methods}>
         <form
-          className="flex gap-[1.7em] items-start"
+          className="flex flex-col gap-[1em] items-center lg:flex-row lg:gap-[1.7em] lg:items-start"
           onSubmit={methods.handleSubmit(onSubmit, onError)}
         >
           {" "}

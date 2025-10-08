@@ -19,7 +19,7 @@ function Checkout() {
   const radioValue = watch("payment");
 
   return (
-    <main className="w-[730px] bg-white px-[2em] py-[3em] rounded-md flex flex-col gap-[2em] ">
+    <main className=" min-w-[350px] max-w-[730px] bg-white px-[1em] lg:px-[2em] py-[3em] rounded-md flex flex-col gap-[2em] ">
       <h3 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
         checkout
       </h3>

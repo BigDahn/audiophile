@@ -28,7 +28,7 @@ function Cart() {
       </Modal.Open>
       <Modal.ModalWindow
         open="modal"
-        style="fixed  h-fit w-fit  z-[9999] top-[11%] left-[61%]"
+        style="fixed  h-fit w-fit  z-[9999] top-[11%] left-1 lg:left-[61%]"
       >
         {cart.length < 1 ? <EmptyCart /> : <CartItemList />}
       </Modal.ModalWindow>
