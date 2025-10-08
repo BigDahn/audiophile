@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { motion } from "motion/react";
 import { createPortal } from "react-dom";
 import { useOutSideClick } from "../_hooks/useOutSideClick";
 
@@ -48,9 +49,25 @@ function ModalWindow({ children, open: OpenModal, style, className }) {
   return isMounted
     ? createPortal(
         <main className={className}>
-          <div ref={ref} className={style}>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.07,
+              type: "linear",
+            }}
+            viewport={{
+              once: false,
+            }}
+            ref={ref}
+            className={style}
+          >
             {children}
-          </div>
+          </motion.div>
         </main>,
         document.body
       )

@@ -36,15 +36,15 @@ function Menu() {
         // viewport={{
         //   once: false,
         // }}
-        className="max-w-[327px] h-[683px]   flex flex-col items-center justify-center gap-[3em]  w-full  mx-auto    "
+        className="max-w-[327px] h-[670px]   flex flex-col items-center justify-center gap-[3em]  w-full  mx-auto    "
       >
         <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[140px]  flex flex-col items-center justify-evenly  relative">
           <Image
             src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
             alt="headphone"
-            width={130}
+            width={140}
             height="104"
-            className="absolute mb-[5em] md:hidden"
+            className="absolute mb-[6em] md:hidden"
           />
           {/* <Image
             src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
