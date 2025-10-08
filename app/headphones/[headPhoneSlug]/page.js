@@ -9,7 +9,7 @@ async function Page({ params }) {
 
   const speaker = await getHeadPhoneBySlugName(data.headPhoneSlug);
   return (
-    <main className=" max-w-[1110px] mx-auto flex flex-col w-full  h-full mt-[10em] gap-[3em] pb-[2em] ">
+    <main className=" max-w-[328px] lg:max-w-[1110px]   items-center justify-center mx-auto lg:mx-auto flex flex-col w-full  h-full mt-[10em] gap-[3em] pb-[2em]  ">
       <NavigateBack />
       <Suspense fallback={<Loading />}>
         <SingleProductDetails data={speaker} />

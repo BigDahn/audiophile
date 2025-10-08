@@ -32,17 +32,26 @@ function SingleProductDetails({ data }) {
   const cartConfirm = cart?.find((s) => s.name === name);
 
   return (
-    <section className="max-w-[1110px] mx-auto flex flex-col w-full  h-full  gap-[7em]  ">
+    <section className="max-w-[328px] lg:max-w-[1110px] mx-auto flex flex-col w-full items-center lg:items-start h-full gap-[3em] lg:gap-[7em]  ">
       {/* product details */}
       <div
-        className={"w-full h-[560px]rounded-md flex  items-center gap-[125px]"}
+        className={
+          "w-full h-[560px]rounded-md flex flex-col lg:flex-row   items-center justify-center  gap-[2em] lg:gap-[125px]"
+        }
       >
         <Image
           src={desktop}
           alt={slug}
           width={540}
           height={560}
-          className="rounded-md"
+          className="rounded-md hidden lg:flex"
+        />
+        <Image
+          src={mobile}
+          alt={slug}
+          width={327}
+          height={327}
+          className="rounded-md flex lg:hidden"
         />
         <div className="max-w-[445px]  flex flex-col gap-[2em]">
           <div className="flex flex-col gap-2">
@@ -121,7 +130,7 @@ function SingleProductDetails({ data }) {
 
       {/* Features and Includes */}
 
-      <div className="flex items-start gap-[120px] ">
+      <div className="flex flex-col lg:flex-row items-start gap-[1em] lg:gap-[120px] ">
         <article className="max-w-[635px] flex flex-col gap-[2em]">
           <h3 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
             Features
@@ -159,15 +168,23 @@ function SingleProductDetails({ data }) {
 
       {/* preview */}
 
-      <div className="grid grid-cols-[445px_auto] grid-rows-[280px_280px_592px] max-h-[592px] gap-[2em]">
-        <div className="row-start-1 ">
+      <div className="grid lg:grid-cols-[445px_auto] lg:grid-rows-[280px_280px_592px]  max-h-[756px] lg:max-h-[592px] gap-[1em] lg:gap-[2em] ">
+        <div className="lg:row-start-1 ">
           <Image
             src={first.desktop}
             alt="first"
             width={445}
             height={280}
             quality={100}
-            className="rounded-md"
+            className="rounded-md hidden lg:flex"
+          />
+          <Image
+            src={first.mobile}
+            alt="first"
+            width={327}
+            height={174}
+            quality={100}
+            className="rounded-md flex lg:hidden"
           />
         </div>
         <div className="">
@@ -177,34 +194,63 @@ function SingleProductDetails({ data }) {
             width={445}
             height={280}
             quality={100}
-            className="rounded-md"
+            className="rounded-md hidden lg:flex"
+          />
+          <Image
+            src={second.mobile}
+            alt="first"
+            width={327}
+            height={174}
+            quality={100}
+            className="rounded-md flex lg:hidden"
           />
         </div>
-        <div className="row-start-1 row-span-2 ">
+        <div className="lg:row-start-1 lg:row-span-2 ">
           <Image
             src={third.desktop}
             alt="first"
             width={635}
             height={400}
             quality={100}
-            className="rounded-md"
+            className="rounded-md hidden lg:flex"
+          />
+          <Image
+            src={third.mobile}
+            alt="first"
+            width={327}
+            height={368}
+            quality={100}
+            className="rounded-md flex lg:hidden"
           />
         </div>
       </div>
 
       {/* may also like */}
 
-      <div className="grid grid-cols-3 gap-[2em]">
+      <div className="grid lg:grid-cols-3 gap-[2em]">
         {others.map((s) => {
           const { name, image, slug } = s;
-          const { desktop } = image;
+          const { desktop, mobile } = image;
 
           const ser = slug.split("-");
           const set = ser[ser.length - 1];
 
           return (
             <div key={name} className="flex flex-col max-h-[471px] gap-6">
-              <Image alt={name} src={desktop} width={350} height={318} />
+              <Image
+                alt={name}
+                src={desktop}
+                width={350}
+                height={318}
+                className="hidden lg:flex"
+              />
+              <Image
+                alt={name}
+                src={mobile}
+                width={370}
+                height={120}
+                className="flex lg:hidden"
+              />
               <div className="flex flex-col justify-center items-center gap-4">
                 <h3 className="font-bold text-[24px] tracking-[1.71px]">
                   {name}
@@ -223,7 +269,7 @@ function SingleProductDetails({ data }) {
 
       {/* shared sub-footer */}
       <SharedItemList />
-      <SharedSubFooter />
+      <SharedSubFooter style=" max-w-[370px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[1em] lg:my-[2em] flex flex-col gap-[1em]" />
     </section>
   );
 }
