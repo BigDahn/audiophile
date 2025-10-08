@@ -7,10 +7,14 @@ import Cart from "./Cart";
 import { useState } from "react";
 import { useParams, usePathname } from "next/navigation";
 import Image from "next/image";
+import { useContext } from "react";
+import { CartModalContext } from "../_ui/modal";
+import Menu from "./Menu";
 
 function Heading() {
   const page = usePathname();
   const params = useParams();
+  const { open } = useContext(CartModalContext);
 
   let keyValue = Object.keys(params);
 
@@ -55,12 +59,14 @@ function Heading() {
             width={26}
             height={10}
             className="lg:hidden"
+            onClick={() => open("menu")}
           />
           <Logo />
           <Navigation style=" hidden lg:flex gap-4 text-[#FFFFFF] font-bold" />
           <Cart />
         </motion.div>
       </header>
+      {/* <Menu /> */}
     </main>
   );
 }

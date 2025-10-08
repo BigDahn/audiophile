@@ -11,7 +11,10 @@ function ConfirmationModal({ cart, total, shipping }) {
   const [showLess, setShowLess] = useState(true);
 
   return (
-    <Modal.ModalWindow open="checkout">
+    <Modal.ModalWindow
+      open="checkout"
+      className="bg-black/50 fixed top-0 left-0 z-[99999999] h-screen w-screen flex m-auto"
+    >
       <main className=" fixed inset-0 z-[9999] top-[4%] lg:top-[3em] mx-auto max-w-[327px] lg:max-w-[500px] h-fit bg-white flex flex-col gap-5 lg:gap-[2em] px-[2em]  py-3 lg:py-[2.3em]">
         <Image
           src="/assets/checkout/icon-order-confirmation.svg"
@@ -28,7 +31,7 @@ function ConfirmationModal({ cart, total, shipping }) {
             You will receive an email confirmation shortly.
           </p>
         </div>
-        <div className=" w-[263px] lg:w-[440px]  rounded-md bg-[#F1F1F1] flex flex-col  justify-between">
+        <div className=" w-[263px] lg:w-[440px]  rounded-md bg-[#F1F1F1] flex flex-col lg:flex-row  justify-between">
           <div className="flex flex-col p-2 pl-3  ">
             {showLess ? (
               <MinimizedCartList cart={cart} />

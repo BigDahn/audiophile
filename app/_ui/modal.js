@@ -35,7 +35,7 @@ function Open({ open: OpenModal, children }) {
   return <button onClick={handleClick}>{children}</button>;
 }
 
-function ModalWindow({ children, open: OpenModal, style }) {
+function ModalWindow({ children, open: OpenModal, style, className }) {
   const { openName, close } = useContext(CartModalContext);
   const ref = useOutSideClick(close, true);
   const [isMounted, setIsMounted] = useState(false);
@@ -47,7 +47,7 @@ function ModalWindow({ children, open: OpenModal, style }) {
   if (openName !== OpenModal) return null;
   return isMounted
     ? createPortal(
-        <main className="bg-black/50 fixed top-0 left-0 z-[99999999] h-screen w-screen flex m-auto">
+        <main className={className}>
           <div ref={ref} className={style}>
             {children}
           </div>
