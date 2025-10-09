@@ -26,8 +26,8 @@ function Menu() {
   return (
     <Modal.ModalWindow
       open="menu"
-      style="fixed h-fit rounded-bl-md rounded-br-md w-full  z-[999999999999]  bg-white  left-auto overflow-y-scroll flex "
-      className="bg-black/50 fixed top-[6em] left-0 z-[99999999] h-screen w-screen flex m-auto"
+      style="fixed max-h-[600px] rounded-bl-md rounded-br-md w-full  z-[999999999999]  bg-white  left-auto overflow-y-scroll flex lg:hidden "
+      className="bg-black/50 fixed top-[6em] left-0 z-[99999999] h-screen w-screen flex m-auto lg:hidden"
     >
       <div
         // variants={fadeInVariation}

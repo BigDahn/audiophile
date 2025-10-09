@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <Container>
-            <main className="relative flex-grow overflow-hidden">
+            <main className="relative flex-grow lg:overflow-hidden">
               {children}
             </main>
           </Container>
