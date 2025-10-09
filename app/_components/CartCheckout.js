@@ -30,7 +30,7 @@ function CartCheckout() {
     const formdata = {
       order_id: id,
       orders: cart,
-      email: data.Email,
+      email: data.email,
       total: new Intl.NumberFormat().format(total),
       cost: {
         shipping: shipping,
@@ -62,6 +62,7 @@ function CartCheckout() {
                   open("");
                   toast.error("There was an error.. Try again");
                   toast.error("There was an error.. Try again");
+                  console.log(error);
                 }
               )
           ),

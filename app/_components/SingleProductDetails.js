@@ -87,7 +87,7 @@ function SingleProductDetails({ data }) {
               <button
                 onClick={() => {
                   dispatch({ type: "decrease/cart", payload: name });
-                  toast.info(`${name} quantity decreased`);
+                  cartConfirm && toast.info(`${name} quantity decreased`);
                 }}
               >
                 -
@@ -96,7 +96,7 @@ function SingleProductDetails({ data }) {
               <button
                 onClick={() => {
                   dispatch({ type: "increase/cart", payload: name });
-                  toast.info(`${name} quantity increased`);
+                  cartConfirm && toast.info(`${name} quantity increased`);
                 }}
               >
                 +

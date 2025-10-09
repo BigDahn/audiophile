@@ -33,13 +33,13 @@ function reducer(state, action) {
       const checkCart = state.cart.find((s) => s.name === action.payload);
       return {
         ...state,
-        count: checkCart ? 1 : state.count - 1,
+        count: checkCart ? 1 : state.count === 1 ? 1 : state.count - 1,
         cart: checkCart
           ? state.cart.map((s) => {
               if (s.name === action.payload) {
                 return {
                   ...s,
-                  quantity: s.quantity - 1,
+                  quantity: s.quantity === 1 ? 1 : s.quantity - 1,
                 };
               }
               return s;
@@ -58,7 +58,7 @@ function reducer(state, action) {
       };
     }
     case "remove/cart": {
-      console.log(action.payload);
+    
       return {
         ...state,
         cart: state.cart.filter((cart) => cart.name !== action.payload.name),
