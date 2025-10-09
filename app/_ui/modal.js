@@ -15,12 +15,15 @@ const CartModalContext = createContext();
 
 function Modal({ children }) {
   const [openName, setOpenName] = useState("");
+  const [openMenu, setOpenMenu] = useState(false);
 
   const open = setOpenName;
   const close = () => setOpenName("");
 
   return (
-    <CartModalContext.Provider value={{ open, openName, close }}>
+    <CartModalContext.Provider
+      value={{ open, openName, close, openMenu, setOpenMenu }}
+    >
       {children}
     </CartModalContext.Provider>
   );

@@ -29,15 +29,7 @@ function Menu() {
       style="fixed max-h-[600px] rounded-bl-md rounded-br-md w-full  z-[999999999999]  bg-white  left-auto overflow-y-scroll flex lg:hidden "
       className="bg-black/50 fixed top-[6em] left-0 z-[99999999] h-screen w-screen flex m-auto lg:hidden"
     >
-      <div
-        // variants={fadeInVariation}
-        // initial="initial"
-        // whileInView="animate"
-        // viewport={{
-        //   once: false,
-        // }}
-        className="max-w-[327px] h-[670px]   flex flex-col items-center justify-center gap-[3em]  w-full  mx-auto    "
-      >
+      <div className="max-w-[327px] h-[670px]   flex flex-col items-center justify-center gap-[3em]  w-full  mx-auto    ">
         <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[140px]  flex flex-col items-center justify-evenly  relative">
           <Image
             src="/assets/shared/desktop/image-category-thumbnail-headphones.png"

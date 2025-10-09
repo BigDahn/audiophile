@@ -14,7 +14,7 @@ import Menu from "./Menu";
 function Heading() {
   const page = usePathname();
   const params = useParams();
-  const { open } = useContext(CartModalContext);
+  const { open, openMenu, setOpenMenu, close } = useContext(CartModalContext);
 
   let keyValue = Object.keys(params);
 
@@ -53,14 +53,30 @@ function Heading() {
               : "flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] "
           }`}
         >
-          <Image
-            alt="hamburger"
-            src="/assets/shared/mobile/icon-hamburger.svg"
-            width={26}
-            height={10}
-            className="lg:hidden"
-            onClick={() => open("menu")}
-          />
+          {openMenu ? (
+            <Image
+              alt="close"
+              src="/assets/shared/mobile/icon-close.svg"
+              width={26}
+              height={10}
+              className="lg:hidden"
+              onClick={() => {
+                close();
+                setOpenMenu(false);
+              }}
+            />
+          ) : (
+            <Image
+              alt="hamburger"
+              src="/assets/shared/mobile/icon-hamburger.svg"
+              width={26}
+              height={10}
+              className="lg:hidden"
+              onClick={() => {
+                open("menu"), setOpenMenu(true);
+              }}
+            />
+          )}
           <Logo />
           <Navigation style=" hidden lg:flex gap-4 text-[#FFFFFF] font-bold" />
           <Cart />
