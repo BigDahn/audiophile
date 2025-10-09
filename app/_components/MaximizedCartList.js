@@ -10,7 +10,7 @@ function MaximizedCartList({ cart }) {
         return (
           <div
             key={name}
-            className="flex  items-start justify-between lg:gap-[3em] py-3  "
+            className="flex  items-start justify-between md:gap-[3em] py-3  "
           >
             <div className="flex gap-1">
               <Image alt="property" src={image} width={50} height={50} />

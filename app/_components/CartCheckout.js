@@ -38,37 +38,36 @@ function CartCheckout() {
         vat: new Intl.NumberFormat().format(vat),
       },
     };
-    open("checkout");
 
-    // return new Promise((resolve) => {
-    //   setTimeout(
-    //     () =>
-    //       resolve(
-    //         emailjs
-    //           .send(
-    //             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-    //             process.env.NEXT_PUBLIC_TEMPLATE_ID,
-    //             formdata,
-    //             {
-    //               publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-    //             }
-    //           )
-    //           .then(
-    //             () => {
-    //               open("checkout");
-    //               toast.success("order confirmation sent to mail");
-    //               toast.success("order confirmation sent to mail");
-    //             },
-    //             (error) => {
-    //               open("");
-    //               toast.error("There was an error.. Try again");
-    //               toast.error("There was an error.. Try again");
-    //             }
-    //           )
-    //       ),
-    //     1000
-    //   );
-    // });
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve(
+            emailjs
+              .send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_TEMPLATE_ID,
+                formdata,
+                {
+                  publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+                }
+              )
+              .then(
+                () => {
+                  open("checkout");
+                  toast.success("order confirmation sent to mail");
+                  toast.success("order confirmation sent to mail");
+                },
+                (error) => {
+                  open("");
+                  toast.error("There was an error.. Try again");
+                  toast.error("There was an error.. Try again");
+                }
+              )
+          ),
+        1000
+      );
+    });
   };
   const onError = (errors) => {
     console.log("Errors:", errors);
@@ -77,7 +76,7 @@ function CartCheckout() {
     <main>
       <FormProvider {...methods}>
         <form
-          className="flex flex-col gap-[1em] items-center lg:flex-row lg:gap-[1.7em] lg:items-start"
+          className="flex flex-col gap-[1em] items-center lg:flex-row lg:gap-[1.7em] lg:items-start  w-full "
           onSubmit={methods.handleSubmit(onSubmit, onError)}
         >
           {" "}

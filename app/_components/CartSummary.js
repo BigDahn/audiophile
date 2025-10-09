@@ -19,7 +19,7 @@ function CartSummary() {
   const total = reduce(cart);
 
   return (
-    <main className="bg-white py-[1.5em] px-[1.3em] w-[350px] flex flex-col gap-[1.3em] ">
+    <main className="bg-white py-[1.5em] px-[1.3em] min-w-[350px] md:min-w-[730px] lg:min-w-[350px]    flex flex-col gap-[1.3em] ">
       <h3 className="text-bold text-[18px] tracking-[1.29px] uppercase">
         Summary
       </h3>

@@ -30,8 +30,8 @@ function SharedSubFooter({ style }) {
       }}
       className={style}
     >
-      <div className="flex flex-col items-center mx-auto lg:mx-0 lg:items-start justify-center max-w-[327px] lg:max-w-[445px] gap-3 lg:gap-[2em]">
-        <h3 className="font-bold text-[28px] text-center lg:text-[40px] uppercase leading-[44px] tracking-[1.43px] lg:text-left">
+      <div className="flex flex-col items-center mx-auto lg:mx-0 lg:items-start justify-center max-w-[327px] md:max-w-[573px] lg:max-w-[445px] gap-3 md:gap-[2em]">
+        <h3 className="font-bold text-[28px] text-center md:text-[40px] uppercase leading-[44px] tracking-[1.43px] lg:text-left">
           Bringing you the <span className="text-[#D87D4A]">best</span> audio
           gear
         </h3>
@@ -44,12 +44,18 @@ function SharedSubFooter({ style }) {
           best place to buy your portable audio equipment.
         </p>
       </div>
-      <div className="lg:w-[540px] relative aspect-square order-first lg:order-last ">
+      <div className="md:w-[750px] lg:w-[540px] md:h-[300px] lg:h-full relative aspect-square order-first lg:order-last ">
         <Image
           src="/assets/shared/desktop/image-best-gear.jpg"
           alt="feeling"
-          className="object-cover rounded-md"
+          className="object-cover rounded-md flex md:hidden lg:flex"
           fill
+        />
+        <Image
+          src="/assets/shared/tablet/image-best-gear.jpg"
+          alt="feeling"
+          fill
+          className="object-cover rounded-md hidden md:flex lg:hidden"
         />
       </div>
     </motion.div>

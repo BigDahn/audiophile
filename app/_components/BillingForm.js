@@ -7,29 +7,29 @@ function BillingForm({ errors, register }) {
       <h3 className="font-bold text-[13px] leading-[25px] tracking-[0.93px] uppercase text-[#D87D4A]">
         billing details
       </h3>
-      <div className="grid lg:grid-cols-2 gap-[2em]">
+      <div className="grid md:grid-cols-2 gap-[2em]">
         <Input
-          style="flex flex-col gap-3  w-[280px] lg:w-full"
+          style="flex flex-col gap-3  w-[280px] md:w-full"
           label="name"
           containerStyle="flex items-center justify-between"
           labelName="name"
           labelStyle="font-bold text-[12px] capitalize tracking-[-0.21px]"
           error={errors?.name?.message}
-          errorStyle="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
-          className="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
+          errorStyle="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
+          className="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
           placeholder="Alexei Ward"
           required="This field is required"
           register={register}
         />
         <Input
-          style="flex flex-col gap-3 w-[280px] lg:w-full"
+          style="flex flex-col gap-3 w-[280px] md:w-full"
           label="email address"
           containerStyle="flex items-center justify-between"
           labelName="email"
           labelStyle="font-bold text-[12px] capitalize tracking-[-0.21px]"
           error={errors?.email?.message}
-          errorStyle="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
-          className="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
+          errorStyle="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
+          className="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
           placeholder="alexei@mail.com"
           required="This field is required"
           value={/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/}
@@ -37,14 +37,14 @@ function BillingForm({ errors, register }) {
           register={register}
         />
         <Input
-          style="flex flex-col gap-3 w-[280px] lg:w-full"
+          style="flex flex-col gap-3 w-[280px] md:w-full"
           label="phone number"
           containerStyle="flex items-center justify-between"
           labelName="phone"
           labelStyle="font-bold text-[12px] capitalize tracking-[-0.21px]"
           error={errors?.phone?.message}
-          errorStyle="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
-          className="w-[280px] lg:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
+          errorStyle="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#CD2C2C] px-2 active:border-[#CD2C2C] focus:outline-[#CD2C2C] focus:outline-2 focus:border-0"
+          className="w-[280px] md:w-[309px] h-[56px] rounded-md border-1  border-[#cfcfcf] px-2 active:border-[#D87D4A] focus:outline-[#D87D4A] focus:outline-1 focus:border-0"
           placeholder="+1 (202) 555-0136"
           required="This field is required"
           value={/^\+[1-9][0-9]{7,14}$/}

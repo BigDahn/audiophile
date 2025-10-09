@@ -28,14 +28,14 @@ function Heading() {
       <header
         className={`${
           page === "/" && pageScroll > 0
-            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
+            ? "fixed z-[9999]  w-full bg-black px-[1em] md:px-[3em] lg:px-0 "
             : pageScroll > 0 && page !== "/"
-            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
+            ? "fixed z-[9999]  w-full bg-black px-[1em] md:px-[3em] lg:px-0 "
             : keyValue.length !== 1 && page !== "/"
-            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
+            ? "fixed z-[9999]  w-full bg-black px-[1em]  md:px-[3em] lg:px-0 "
             : keyValue.length === 1
-            ? "fixed z-[9999]  w-full bg-black px-[1em] lg:px-0 "
-            : "fixed z-[9999]  w-full px-[1em] lg:px-0 "
+            ? "fixed z-[9999]  w-full bg-black px-[1em] md:px-[3em] lg:px-0 "
+            : "fixed z-[9999]  w-full px-[1em] lg:px-0 md:px-[3em]"
         }`}
       >
         <motion.div
@@ -47,7 +47,7 @@ function Heading() {
           }}
           className={`${
             pageScroll === 0 && keyValue.length !== 1 && page !== "/checkout"
-              ? " px-[1em] flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] border-b-[#ffff] border-b-2  "
+              ? " px-[1em] md:px-[1em] flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] border-b-[#ffff] border-b-2  "
               : page === "/checkout"
               ? "flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999]"
               : "flex  justify-between pb-[2.5em] pt-[2em]   lg:max-w-[1110px] mx-auto z-[999] "

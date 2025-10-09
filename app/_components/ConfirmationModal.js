@@ -14,8 +14,9 @@ function ConfirmationModal({ cart, total, shipping }) {
     <Modal.ModalWindow
       open="checkout"
       className="bg-black/50 fixed top-0 left-0 z-[99999999] h-screen w-screen flex m-auto"
+      style=" fixed inset-0 z-[999999999] top-[4%] md:top-[10%] lg:top-[3em] mx-auto max-w-[327px]  md:max-w-[500px] h-fit bg-white "
     >
-      <main className=" fixed inset-0 z-[9999] top-[4%] lg:top-[3em] mx-auto max-w-[327px] lg:max-w-[500px] h-fit bg-white flex flex-col gap-5 lg:gap-[2em] px-[2em]  py-3 lg:py-[2.3em]">
+      <main className="flex flex-col gap-5 lg:gap-[2em] px-[2em]  py-3 md:py-[2.3em]">
         <Image
           src="/assets/checkout/icon-order-confirmation.svg"
           alt="confirm"
@@ -23,7 +24,7 @@ function ConfirmationModal({ cart, total, shipping }) {
           height={64}
         />
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-[24px] lg:text-[32px] leading-[36px] tracking-[1.14px] uppercase ">
+          <h3 className="font-bold text-[24px] md:text-[32px] leading-[36px] tracking-[1.14px] uppercase ">
             Thank you <br />
             for your order
           </h3>
@@ -31,7 +32,7 @@ function ConfirmationModal({ cart, total, shipping }) {
             You will receive an email confirmation shortly.
           </p>
         </div>
-        <div className=" w-[263px] lg:w-[440px]  rounded-md bg-[#F1F1F1] flex flex-col lg:flex-row  justify-between">
+        <div className=" w-[263px] md:w-[440px]  rounded-md bg-[#F1F1F1] flex flex-col md:flex-row  justify-between">
           <div className="flex flex-col p-2 pl-3  ">
             {showLess ? (
               <MinimizedCartList cart={cart} />
@@ -54,7 +55,7 @@ function ConfirmationModal({ cart, total, shipping }) {
               </>
             )}
           </div>
-          <div className="bg-black lg:w-[198px] rounded-tr-md rounded-br-md flex flex-col justify-end py-[2em] gap-[1em] items-start px-[2em]">
+          <div className="bg-black md:w-[198px] rounded-tr-md rounded-br-md flex flex-col justify-end py-[2em] gap-[1em] items-start px-[2em]">
             <h3 className="font-medium text-[15px] leading-[25px] text-gray-400 uppercase ">
               grand total
             </h3>

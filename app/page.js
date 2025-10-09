@@ -31,11 +31,11 @@ function page() {
           />
 
           <div className="text-white relative w-full flex h-full items-center justify-start max-w-[1110px]  mx-auto   ">
-            <div className=" max-w-[328px] m-auto lg:m-0 lg:max-w-[398px] flex flex-col text-center lg:text-left justify-center items-center lg:justify-start lg:items-start  gap-[1.8em]">
+            <div className=" max-w-[328px] md:max-w-[379px] m-auto lg:m-0 lg:max-w-[398px] flex flex-col text-center lg:text-left justify-center items-center lg:justify-start lg:items-start  gap-[1.8em]">
               <h3 className="font-normal text-[14px] tracking-[10px] leading-normal uppercase">
                 New product
               </h3>
-              <h1 className="font-bold text-[36px] lg:text-[56px] leading-[40px] lg:leading-[58px] tracking-[1.29px] uppercase lg:tracking-[2px] text-[#ffffff]">
+              <h1 className="font-bold text-[36px] md:text-[56px] leading-[40px] md:leading-[58px] tracking-[1.29px] uppercase md:tracking-[2px] text-[#ffffff]">
                 XX99 Mark II Headphones
               </h1>
               <p className="font-medium text-[15px] leading-[25px] tracking-[0px] max-w-[349px]">
@@ -52,10 +52,12 @@ function page() {
           </div>
         </div>
       </main>
-      <SharedItemList />
-      <HomePageComponents />
+      <div className=" lg:max-w-[1110px] md:max-w-screen  flex-col flex items-center mx-auto">
+        <SharedItemList />
+        <HomePageComponents />
 
-      <SharedSubFooter style=" max-w-[370px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[2em] lg:my-[4em] flex flex-col gap-[1em]" />
+        <SharedSubFooter style=" max-w-[370px] md:max-w-[750px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] md:h-[633px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[2em] md:my-[2em] lg:my-[4em] flex flex-col gap-[1em] md:gap-[3em] " />
+      </div>
     </div>
   );
 }

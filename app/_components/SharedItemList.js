@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const fadeInVariation = {
   initial: {
@@ -28,9 +29,9 @@ function SharedItemList() {
       viewport={{
         once: false,
       }}
-      className="max-w-[327px] lg:max-w-[1110px] flex flex-col items-center gap-[5em] lg:flex lg:flex-row w-full  mx-auto lg:justify-between lg:h-[284px] lg:items-end  my-[3em] lg:my-[3em]"
+      className="max-w-[327px] md:max-w-[750px]  lg:max-w-[1110px] flex flex-col items-center gap-[2em]  lg:gap-[5em] md:flex md:flex-row w-screen lg:w-full md:h-[217px]  mx-auto md:justify-between lg:h-[284px] lg:items-end  my-[3em] lg:my-[3em]"
     >
-      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px]  md:w-[367px] md:h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
           alt="headphone"
@@ -50,9 +51,12 @@ function SharedItemList() {
           alt="headphone"
           width="210"
           height="160"
-          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+          className="hidden md:flex md:absolute md:mb-[8em]  lg:hidden"
         />
-        <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
+        <Link
+          href="/headphones"
+          className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2"
+        >
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             HeadPhones
           </h3>
@@ -69,9 +73,9 @@ function SharedItemList() {
               />
             </span>
           </div>
-        </div>
+        </Link>
       </div>
-      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px]  md:w-[367px] md:h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
           alt="speakers"
@@ -91,13 +95,16 @@ function SharedItemList() {
           alt="speakers"
           width="210"
           height="160"
-          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+          className="hidden md:flex md:absolute md:mb-[8em]  lg:hidden"
         />
         <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             speakers
           </h3>
-          <div className=" flex gap-2 items-center justify-center ">
+          <Link
+            href="/speakers"
+            className=" flex gap-2 items-center justify-center "
+          >
             <p className="font-bold text-black text-[13px] tracking-[1px] uppercase">
               shop
             </p>
@@ -109,10 +116,10 @@ function SharedItemList() {
                 height={10}
               />
             </span>
-          </div>
+          </Link>
         </div>
       </div>
-      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
+      <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px]  md:w-[367px] md:h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
           alt="earphones"
@@ -132,9 +139,12 @@ function SharedItemList() {
           alt="earphones"
           width="210"
           height="160"
-          className="hidden md:absolute md:mb-[8em]  lg:hidden"
+          className="hidden md:flex md:absolute md:mb-[8em]  lg:hidden"
         />
-        <div className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2">
+        <Link
+          href="/earphones"
+          className=" mt-[4em] lg:mt-[6em] flex flex-col gap-2"
+        >
           <h3 className="font-bold text-[18px] text-black tracking-[1.29px] text-center uppercase">
             earphones
           </h3>
@@ -151,7 +161,7 @@ function SharedItemList() {
               />
             </span>
           </div>
-        </div>
+        </Link>
       </div>
     </motion.div>
   );

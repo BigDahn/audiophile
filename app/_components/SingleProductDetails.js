@@ -32,11 +32,14 @@ function SingleProductDetails({ data }) {
   const cartConfirm = cart?.find((s) => s.name === name);
 
   return (
-    <section className="max-w-[328px] lg:max-w-[1110px] mx-auto flex flex-col w-full items-center lg:items-start h-full gap-[3em] lg:gap-[7em]  ">
+    <section
+      className="max-w-[328px] md:min-w-[750px] lg:max-w-[1110px] mx-auto flex flex-col w-full 
+      h-full gap-[3em] md:gap-[7em]  "
+    >
       {/* product details */}
       <div
         className={
-          "w-full h-[560px]rounded-md flex flex-col lg:flex-row   items-center justify-center  gap-[2em] lg:gap-[125px]"
+          "w-full h-[560px]rounded-md flex flex-col md:flex-row   items-center justify-center  gap-[2em] lg:gap-[125px]"
         }
       >
         <Image
@@ -47,14 +50,21 @@ function SingleProductDetails({ data }) {
           className="rounded-md hidden lg:flex"
         />
         <Image
+          src={tablet}
+          alt={slug}
+          width={281}
+          height={480}
+          className="rounded-md hidden md:flex lg:hidden"
+        />
+        <Image
           src={mobile}
           alt={slug}
           width={327}
           height={327}
-          className="rounded-md flex lg:hidden"
+          className="rounded-md flex md:hidden"
         />
-        <div className="max-w-[445px]  flex flex-col gap-[2em]">
-          <div className="flex flex-col gap-2">
+        <div className="max-w-[445px]  flex flex-col gap-[3em]">
+          <div className="flex flex-col gap-2 md:gap-[2em]">
             <h1 className="font-normal text-[#D87D4A] text-[14px]">
               {isNew && "NEW PRODUCT"}
             </h1>
@@ -131,7 +141,7 @@ function SingleProductDetails({ data }) {
       {/* Features and Includes */}
 
       <div className="flex flex-col lg:flex-row items-start gap-[1em] lg:gap-[120px] ">
-        <article className="max-w-[635px] flex flex-col gap-[2em]">
+        <article className="max-w-[635px] md:max-w-[750px] flex flex-col gap-[2em]">
           <h3 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
             Features
           </h3>
@@ -143,7 +153,7 @@ function SingleProductDetails({ data }) {
           </div>
         </article>
 
-        <div className="flex flex-col gap-[2em]">
+        <div className="flex flex-col md:flex-row lg:flex-col md:justify-between  md:pr-[3em] pr-0 w-full gap-[2em]">
           <h2 className="uppercase font-bold text-[32px] leading-[36px] tracking-[1.14px]">
             In the box
           </h2>
@@ -168,8 +178,8 @@ function SingleProductDetails({ data }) {
 
       {/* preview */}
 
-      <div className="grid lg:grid-cols-[445px_auto] lg:grid-rows-[280px_280px_592px]  max-h-[756px] lg:max-h-[592px] gap-[1em] lg:gap-[2em] ">
-        <div className="lg:row-start-1 ">
+      <div className="grid md:grid-cols-[330px_600px] lg:grid-cols-[445px_auto] md:grid-rows-[177px_177px_368px] lg:grid-rows-[280px_280px_592px]  max-h-[756px] md:max-h-[370px] lg:max-h-[592px] gap-[1em]   lg:gap-[2em] ">
+        <div className="md:row-start-1 ">
           <Image
             src={first.desktop}
             alt="first"
@@ -184,7 +194,15 @@ function SingleProductDetails({ data }) {
             width={327}
             height={174}
             quality={100}
-            className="rounded-md flex lg:hidden"
+            className="rounded-md flex md:hidden"
+          />
+          <Image
+            src={first.tablet}
+            alt="first"
+            width={277}
+            height={177}
+            quality={100}
+            className="rounded-md hidden md:flex lg:hidden"
           />
         </div>
         <div className="">
@@ -202,10 +220,18 @@ function SingleProductDetails({ data }) {
             width={327}
             height={174}
             quality={100}
-            className="rounded-md flex lg:hidden"
+            className="rounded-md flex md:hidden"
+          />
+          <Image
+            src={second.tablet}
+            alt="first"
+            width={277}
+            height={177}
+            quality={100}
+            className="rounded-md hidden md:flex lg:hidden"
           />
         </div>
-        <div className="lg:row-start-1 lg:row-span-2 ">
+        <div className="md:row-start-1 md:row-span-2 ">
           <Image
             src={third.desktop}
             alt="first"
@@ -220,17 +246,25 @@ function SingleProductDetails({ data }) {
             width={327}
             height={368}
             quality={100}
-            className="rounded-md flex lg:hidden"
+            className="rounded-md flex md:hidden"
+          />
+          <Image
+            src={third.tablet}
+            alt="first"
+            width={395}
+            height={368}
+            quality={100}
+            className="rounded-md hidden md:flex lg:hidden"
           />
         </div>
       </div>
 
       {/* may also like */}
 
-      <div className="grid lg:grid-cols-3 gap-[2em]">
+      <div className="grid md:grid-cols-3 gap-[2em]">
         {others.map((s) => {
           const { name, image, slug } = s;
-          const { desktop, mobile } = image;
+          const { desktop, mobile, tablet } = image;
 
           const ser = slug.split("-");
           const set = ser[ser.length - 1];
@@ -246,10 +280,17 @@ function SingleProductDetails({ data }) {
               />
               <Image
                 alt={name}
+                src={tablet}
+                width={223}
+                height={318}
+                className="hidden md:flex lg:hidden"
+              />
+              <Image
+                alt={name}
                 src={mobile}
                 width={370}
                 height={120}
-                className="flex lg:hidden"
+                className="flex md:hidden"
               />
               <div className="flex flex-col justify-center items-center gap-4">
                 <h3 className="font-bold text-[24px] tracking-[1.71px]">
@@ -269,7 +310,7 @@ function SingleProductDetails({ data }) {
 
       {/* shared sub-footer */}
       <SharedItemList />
-      <SharedSubFooter style=" max-w-[370px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[1em] lg:my-[2em] flex flex-col gap-[1em]" />
+      <SharedSubFooter style=" max-w-[370px] md:max-w-[750px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] md:h-[633px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[2em] md:my-[2em] lg:my-[4em] flex flex-col gap-[1em] md:gap-[3em] " />
     </section>
   );
 }
