@@ -29,7 +29,7 @@ function SharedItemList() {
       viewport={{
         once: false,
       }}
-      className="max-w-[327px] md:max-w-[750px]  lg:max-w-[1110px] flex flex-col items-center gap-[2em]  lg:gap-[5em] md:flex md:flex-row w-screen lg:w-full md:h-[217px]  mx-auto md:justify-between lg:h-[284px] lg:items-end  my-[3em] lg:my-[3em]"
+      className="max-w-[327px] md:max-w-[750px]  lg:max-w-[1110px] flex flex-col items-center gap-[4em] md:gap-[2em]  lg:gap-[5em] md:flex md:flex-row w-screen lg:w-full md:h-[217px]  mx-auto md:justify-between lg:h-[284px] lg:items-end  my-[3em] lg:my-[3em]"
     >
       <div className="bg-[#F1F1F1] rounded-md  w-[327px] h-[165px]  md:w-[367px] md:h-[165px] lg:w-[350px] lg:h-[204px] flex flex-col items-center justify-evenly  relative">
         <Image
