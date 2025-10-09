@@ -24,8 +24,7 @@ function CartCheckout() {
   const methods = useForm({
     mode: "onSubmit",
   });
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const id = nanoid();
     const formdata = {
       order_id: id,
@@ -40,34 +39,35 @@ function CartCheckout() {
     };
 
     return new Promise((resolve) => {
-      setTimeout(
-        () =>
-          resolve(
-            emailjs
-              .send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-                process.env.NEXT_PUBLIC_TEMPLATE_ID,
-                formdata,
-                {
-                  publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-                }
-              )
-              .then(
-                () => {
-                  open("checkout");
-                  toast.success("order confirmation sent to mail");
-                  toast.success("order confirmation sent to mail");
-                },
-                (error) => {
-                  open("");
-                  toast.error("There was an error.. Try again");
-                  toast.error("There was an error.. Try again");
-                  console.log(error);
-                }
-              )
-          ),
-        1000
-      );
+      setTimeout(async () => {
+        try {
+          const response = await fetch("/api/sendEmail", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formdata),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            open("checkout");
+            toast.success("Order confirmation sent to mail");
+            resolve(result);
+          } else {
+            open("");
+            toast.error("There was an error.. Try again");
+
+            resolve(result);
+          }
+        } catch (error) {
+          open("");
+          toast.error("There was an error.. Try again");
+
+          resolve({ success: false });
+        }
+      }, 1000);
     });
   };
   const onError = (errors) => {
