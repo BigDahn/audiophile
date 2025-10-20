@@ -1,4 +1,5 @@
 import { Manrope } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./_styles/global.css";
 
 import Providers from "./_components/Providers";
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${manrope.className}  min-h-screen flex flex-col antialiased  `}
       >
+        <SpeedInsights />
         <Providers>
           <Container>
             <main className="relative flex-grow lg:overflow-hidden">
