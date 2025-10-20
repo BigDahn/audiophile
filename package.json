@@ -18,7 +18,8 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.58.1",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "vercel": "^48.4.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
