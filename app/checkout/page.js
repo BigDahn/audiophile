@@ -1,10 +1,9 @@
-import React from "react";
 import NavigateBack from "../_components/NavigateBack";
-import EmptyCart from "../_components/EmptyCart";
-import Modal from "../_ui/modal";
-import Checkout from "../_components/Checkout";
-import CartSummary from "../_components/CartSummary";
 import CartCheckout from "../_components/CartCheckout";
+
+export const metadata = {
+  title: "CheckOut",
+};
 
 function page() {
   return (

@@ -2,6 +2,10 @@ import Loading from "@/app/loading";
 import { Suspense } from "react";
 import HeadPhoneContent from "../_components/HeadPhoneContent";
 
+export const metadata = {
+  title: "Headphones",
+};
+
 function page() {
   return (
     <main className="grid gap-[4em] pb-[4em]  ">

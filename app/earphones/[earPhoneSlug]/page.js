@@ -1,13 +1,18 @@
 import NavigateBack from "@/app/_components/NavigateBack";
-import SharedItemList from "@/app/_components/SharedItemList";
-import SharedSubFooter from "@/app/_components/SharedSubFooter";
 import SingleProductDetails from "@/app/_components/SingleProductDetails";
-import useGoBack from "@/app/_hooks/useGoBack";
 import { getEarphoneSlugName } from "@/app/_lib/services";
 import Loading from "@/app/loading";
-import Image from "next/image";
-import Link from "next/link";
 import { Suspense } from "react";
+
+export async function generateMetadata({ params }) {
+  const data = await params;
+
+  const { name } = await getEarphoneSlugName(data.earPhoneSlug);
+
+  return {
+    title: `${name}`,
+  };
+}
 
 async function Page({ params }) {
   const data = await params;

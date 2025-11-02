@@ -4,6 +4,14 @@ import { getSpeakerBySlugName } from "@/app/_lib/services";
 import Loading from "@/app/loading";
 import { Suspense } from "react";
 
+export async function generateMetadata({ params }) {
+  const data = await params;
+  const { name } = await getSpeakerBySlugName(data.speakerSlug);
+  return {
+    title: `${name}`,
+  };
+}
+
 async function Page({ params }) {
   const data = await params;
 

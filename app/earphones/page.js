@@ -1,7 +1,10 @@
-import { getAllEarPhones } from "../_lib/services";
 import { Suspense } from "react";
 import Loading from "../loading";
 import EarPhoneContent from "../_components/EarPhoneContent";
+
+export const metadata = {
+  title: "EarPhones",
+};
 
 function page() {
   return (

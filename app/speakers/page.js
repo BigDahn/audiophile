@@ -2,6 +2,10 @@ import { Suspense } from "react";
 import SpeakerContent from "../_components/SpeakerContent";
 import Loading from "../loading";
 
+export const metadata = {
+  title: "Speaker",
+};
+
 function page() {
   return (
     <main className="grid gap-[5em] pb-[4em]  ">
