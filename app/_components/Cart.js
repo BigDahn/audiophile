@@ -15,10 +15,9 @@ function Cart() {
         <Image
           src="/assets/shared/desktop/icon-cart.svg"
           alt="cart"
-          height="20"
-          quality={100}
-          className="relative"
-          width="24"
+          className="relative w-auto h-auto"
+          height={0}
+          width={0}
         />
         {cart.length >= 1 && (
           <div className="rounded-full text-white text-center flex items-center justify-center text-[13px] font-bold h-[20px] w-[20px] z-[99999] bg-[#D87D4A] fixed ml-3 top-7">

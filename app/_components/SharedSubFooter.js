@@ -50,11 +50,19 @@ function SharedSubFooter({ style }) {
           alt="feeling"
           className="object-cover rounded-md flex md:hidden lg:flex"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL="..."
         />
         <Image
           src="/assets/shared/tablet/image-best-gear.jpg"
           alt="feeling"
+          loading="lazy"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          placeholder="blur"
+          blurDataURL="..."
           className="object-cover rounded-md hidden md:flex lg:hidden"
         />
       </div>

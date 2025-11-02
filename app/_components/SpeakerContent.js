@@ -69,6 +69,7 @@ async function SpeakerContent() {
                 <Link
                   href={`/speakers/${slug}`}
                   className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
+                  prefetch={false}
                 >
                   see product
                 </Link>

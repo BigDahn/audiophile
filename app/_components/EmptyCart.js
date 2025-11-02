@@ -14,8 +14,9 @@ function EmptyCart() {
         <Image
           src="/assets/shared/desktop/empty-cart.svg"
           alt="empty-cart"
-          width={50}
-          height={30}
+          width={0}
+          height={0}
+          className="w-[10%] h-auto"
         />
         <div className="flex flex-col justify-center w-full gap-1 items-center">
           <h3>Your cart is empty!</h3>

@@ -7,8 +7,10 @@ function Logo() {
       <Image
         alt="logo"
         src="/assets/shared/desktop/logo.svg"
-        width={143}
-        height={25}
+        width="0"
+        height="0"
+        style={{ width: "100%", height: "auto" }}
+        loading="lazy"
       />
     </Link>
   );

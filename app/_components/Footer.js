@@ -76,23 +76,23 @@ function Footer() {
             <Image
               src="/assets/shared/desktop/icon-facebook.svg"
               alt="socials"
-              width={24}
-              height={24}
-              className="hover:fill-amber-500 cursor-pointer"
+              height={0}
+              width={0}
+              className="hover:fill-amber-500 cursor-pointer w-auto h-auto"
             />
             <Image
               src="/assets/shared/desktop/icon-twitter.svg"
               alt="socials"
-              width={24}
-              height={24}
-              className="hover:fill-amber-500 cursor-pointer"
+              height={0}
+              width={0}
+              className="hover:fill-amber-500 cursor-pointer w-auto h-auto"
             />
             <Image
               src="/assets/shared/desktop/icon-instagram.svg"
               alt="socials"
-              width={24}
-              height={24}
-              className="hover:fill-amber-500 cursor-pointer"
+              height={0}
+              width={0}
+              className="hover:fill-amber-500 cursor-pointer w-auto h-auto"
             />
           </div>
         </div>

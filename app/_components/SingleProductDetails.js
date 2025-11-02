@@ -68,9 +68,9 @@ function SingleProductDetails({ data }) {
             <h1 className="font-normal text-[#D87D4A] text-[14px]">
               {isNew && "NEW PRODUCT"}
             </h1>
-            <h3 className="font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase">
+            <h2 className="font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase">
               {name}
-            </h3>
+            </h2>
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-[15px] font-medium leading-[25px]">
@@ -185,7 +185,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={445}
             height={280}
-            quality={100}
             className="rounded-md hidden lg:flex"
           />
           <Image
@@ -193,7 +192,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={327}
             height={174}
-            quality={100}
             className="rounded-md flex md:hidden"
           />
           <Image
@@ -201,7 +199,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={277}
             height={177}
-            quality={100}
             className="rounded-md hidden md:flex lg:hidden"
           />
         </div>
@@ -211,7 +208,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={445}
             height={280}
-            quality={100}
             className="rounded-md hidden lg:flex"
           />
           <Image
@@ -219,7 +215,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={327}
             height={174}
-            quality={100}
             className="rounded-md flex md:hidden"
           />
           <Image
@@ -227,7 +222,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={277}
             height={177}
-            quality={100}
             className="rounded-md hidden md:flex lg:hidden"
           />
         </div>
@@ -237,7 +231,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={635}
             height={400}
-            quality={100}
             className="rounded-md hidden lg:flex"
           />
           <Image
@@ -245,7 +238,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={327}
             height={368}
-            quality={100}
             className="rounded-md flex md:hidden"
           />
           <Image
@@ -253,7 +245,6 @@ function SingleProductDetails({ data }) {
             alt="first"
             width={395}
             height={368}
-            quality={100}
             className="rounded-md hidden md:flex lg:hidden"
           />
         </div>

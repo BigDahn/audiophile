@@ -35,14 +35,18 @@ function HomePageComponents() {
       className="grid gap-[3em]  "
     >
       <div className="max-w-[370px] md:max-w-[750px]  lg:max-w-[1110px] w-screen  mx-auto  h-[600px] md:h-[720px] lg:h-[560px] rounded-md   mt-[0.4em] lg:mt-[4em] bg-[#D87D4A] overflow-hidden">
-        <div className="bg-[url(/assets/home/desktop/pattern-circles.svg)] lg:w-[88%]   bg-cover  bg-no-repeat bg-bottom lg:bg-top-right relative top-[-6em] md:top-[3em] lg:top-[0em] lg:left-[0em]   flex justify-center  ">
+        <div className="bg-[url(/assets/home/desktop/pattern-circles.svg)] lg:w-[80%]   bg-cover  bg-no-repeat bg-bottom lg:bg-top-right relative top-[-6em] md:top-[3em] lg:top-[0em] lg:left-[0em]   flex justify-center  ">
           <div className=" flex flex-col lg:flex lg:flex-row mx-auto lg:items-start relative top-[9em] mt-0 lg:mt-[5em] gap-[4em] md:gap-[5em] lg:gap-[6em] items-center justify-center lg:ml-[8em] md:top-0">
             <Image
               src="/assets/home/desktop/image-speaker-zx9.png"
               alt="speaker"
-              width={410}
-              height={483}
-              className="hidden lg:flex"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              placeholder="blur"
+              blurDataURL="..."
+              width="0"
+              height="0"
+              className="w-[100%] h-auto hidden lg:flex"
             />
             {/* src="/assets/home/tablet/image-speaker-zx9.png" */}
             <Image

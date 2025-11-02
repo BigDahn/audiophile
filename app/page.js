@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import bg from "@/public/assets/home/desktop/image-hero.jpg";
 import sg from "@/public/assets/home/mobile/image-header.jpg";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import SharedItemList from "./_components/SharedItemList";
 import SharedSubFooter from "./_components/SharedSubFooter";
 import HomePageComponents from "./_components/HomePageComponents";
+import Loading from "@/app/loading";
 
 function page() {
   return (
@@ -19,15 +20,15 @@ function page() {
             fill
             className="lg:object-cover lg:flex hidden"
             placeholder="blur"
-            quality={80}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <Image
             src={sg}
             alt="hero"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover flex lg:hidden"
             placeholder="blur"
-            quality={80}
           />
 
           <div className="text-white relative w-full flex h-full items-center justify-start max-w-[1110px]  mx-auto   ">
@@ -44,7 +45,8 @@ function page() {
               </p>
               <Link
                 href="\headphones\xx99-mark-two-headphones"
-                className="uppercase bg-[#D87D4A] text-white w-[160px] h-[48px] flex items-center justify-center font-bold leading-normal tracking-[1px] text-[13px]"
+                className="uppercase bg-[#D87D4A] text-white w-[165px] h-[48px] flex items-center justify-center font-bold leading-normal tracking-[1px] text-[13px]"
+                prefetch={false}
               >
                 see product
               </Link>
@@ -52,12 +54,14 @@ function page() {
           </div>
         </div>
       </main>
-      <div className=" lg:max-w-[1110px] md:max-w-screen  flex-col flex items-center mx-auto">
-        <SharedItemList />
-        <HomePageComponents />
+      <Suspense fallback={<Loading />}>
+        <div className=" lg:max-w-[1110px] md:max-w-screen  flex-col flex items-center mx-auto">
+          <SharedItemList />
+          <HomePageComponents />
 
-        <SharedSubFooter style=" max-w-[370px] md:max-w-[750px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] md:h-[633px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[2em] md:my-[2em] lg:my-[4em] flex flex-col gap-[1em] md:gap-[3em] " />
-      </div>
+          <SharedSubFooter style=" max-w-[370px] md:max-w-[750px] lg:max-w-[1110px]  w-full  mx-auto  lg:h-[588px] h-[698px] md:h-[633px] rounded-md lg:flex lg:flex-row lg:gap-[9em] my-[2em] md:my-[2em] lg:my-[4em] flex flex-col gap-[1em] md:gap-[3em] " />
+        </div>
+      </Suspense>
     </div>
   );
 }
