@@ -2,12 +2,27 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import SharedItemList from "./SharedItemList";
-import SharedSubFooter from "./SharedSubFooter";
+
 import { useCart } from "../_context/CartContainer";
 import { toast } from "react-toastify";
+
+import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+import Loading from "../loading";
+
+const SharedItemList = dynamic(() => import("./SharedItemList"), {
+  loading: () => <Loading />,
+  ssr: false,
+});
+
+const SharedSubFooter = dynamic(() => import("./SharedSubFooter"), {
+  loading: () => <Loading />,
+  ssr: false,
+});
+
 function SingleProductDetails({ data }) {
   const { count, cart, dispatch } = useCart();
+  const router = useRouter();
 
   const {
     id,
@@ -104,7 +119,6 @@ function SingleProductDetails({ data }) {
             </div>
             <button
               type="button"
-              // href={`/earphones/${slug}`}
               className="w-[160px] h-[48px] bg-[#D87D4A] text-white uppercase text-[13px] font-bold tracking-[1px] flex items-center justify-center"
               onClick={() => {
                 const toastId = toast("", {
@@ -130,6 +144,7 @@ function SingleProductDetails({ data }) {
                     },
                   });
                 }, 0);
+                router.prefetch("/checkout");
               }}
             >
               {cartConfirm ? "Remove from cart" : " Add to Cart"}

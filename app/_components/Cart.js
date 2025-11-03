@@ -2,10 +2,15 @@
 
 import Image from "next/image";
 import { Modal } from "../_ui/modal";
-
 import { useCart } from "../_context/CartContainer";
 import EmptyCart from "./EmptyCart";
-import CartItemList from "./CartItemList";
+import dynamic from "next/dynamic";
+import Loading from "../loading";
+
+const CartItemList = dynamic(() => import("./CartItemList"), {
+  loading: () => <Loading />,
+  ssr: false,
+});
 
 function Cart() {
   const { cart } = useCart();

@@ -1,9 +1,12 @@
 import React from "react";
-import SharedItemList from "./SharedItemList";
-import SharedSubFooter from "./SharedSubFooter";
+
 import Link from "next/link";
 import Image from "next/image";
 import { getAllSpeakers } from "../_lib/services";
+import dynamic from "next/dynamic";
+
+const SharedItemList = dynamic(() => import("./SharedItemList"));
+const SharedSubFooter = dynamic(() => import("./SharedSubFooter"));
 
 async function SpeakerContent() {
   const data = await getAllSpeakers();

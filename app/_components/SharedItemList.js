@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,7 +22,7 @@ const fadeInVariation = {
 
 function SharedItemList() {
   return (
-    <motion.div
+    <m.div
       variants={fadeInVariation}
       initial="initial"
       whileInView="animate"
@@ -169,7 +169,7 @@ function SharedItemList() {
           </div>
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 

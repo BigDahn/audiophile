@@ -1,8 +1,10 @@
-import SharedItemList from "./SharedItemList";
-import SharedSubFooter from "./SharedSubFooter";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllHeadPhones } from "../_lib/services";
+import dynamic from "next/dynamic";
+
+const SharedItemList = dynamic(() => import("./SharedItemList"));
+const SharedSubFooter = dynamic(() => import("./SharedSubFooter"));
 
 async function HeadPhoneContent() {
   const data = await getAllHeadPhones();

@@ -6,7 +6,22 @@ import Logo from "./Logo";
 import Image from "next/image";
 import Navigation from "./Navigation";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
+
+const FadeInVariant = {
+  initial: {
+    opacity: 0,
+    x: -100,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+  },
+  transition: {
+    delay: 1.7,
+    type: "linear",
+  },
+};
 
 function Footer() {
   const pathName = usePathname();
@@ -17,17 +32,10 @@ function Footer() {
         {(pathName === "/" || pathName === "/checkout") && (
           <div className="w-[104px] border-b-[#D87D4A] border-b-4 absolute top-[0em] ml-[0.2em]"></div>
         )}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.07,
-            type: "linear",
-          }}
+        <m.div
+          variants={FadeInVariant}
+          initial="initial"
+          whileInView="animate"
           viewport={{
             once: false,
           }}
@@ -35,7 +43,7 @@ function Footer() {
         >
           <Logo />
           <Navigation style=" flex-col flex md:flex md:flex-row gap-4 text-[#FFFFFF] font-bold text-center" />
-        </motion.div>
+        </m.div>
         <div className=" flex gap-[4em] flex-col justify-center items-center md:items-start md:flex md:flex-row lg:justify-between w-full lg:items-end  md:justify-start">
           <h4 className="font-medium text-[15px] leading-[25px] text-[#979797] max-w-[521px] md:max-w-[689px] text-center md:text-left">
             Audiophile is an all in one stop to fulfill your audio needs.

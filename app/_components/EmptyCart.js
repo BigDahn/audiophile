@@ -5,9 +5,9 @@ import React from "react";
 
 import { Modal } from "../_ui/modal";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 function EmptyCart() {
-  // min-w-[350px] md:min-w-[698px] lg:min-w-[350px]
   return (
     <main className="max-w-[377px] bg-white max-h-[488px] flex flex-col  m-auto rounded-md ">
       <div className="flex flex-col gap-4 justify-center w-full items-center px-5 py-5">

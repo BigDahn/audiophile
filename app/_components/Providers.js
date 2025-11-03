@@ -1,9 +1,17 @@
 "use client";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import dynamic from "next/dynamic";
 import { CartContainer } from "../_context/CartContainer";
-import { Modal } from "../_ui/modal";
+// import { Modal } from "../_ui/modal";
+
+const ToastContainer = dynamic(
+  () => import("react-toastify").then((mod) => mod.ToastContainer),
+  { ssr: false }
+);
+
+const Modal = dynamic(() => import("../_ui/modal").then((m) => m.Modal), {
+  ssr: false,
+});
 
 function Providers({ children }) {
   return (

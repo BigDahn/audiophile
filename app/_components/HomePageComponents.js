@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 const FadeInVariations = {
   initial: {
@@ -25,7 +25,7 @@ const FadeInVariations = {
 
 function HomePageComponents() {
   return (
-    <motion.main
+    <m.main
       initial="initial"
       whileInView="animate"
       variants={FadeInVariations}
@@ -138,7 +138,7 @@ function HomePageComponents() {
           </Link>
         </div>
       </div>
-    </motion.main>
+    </m.main>
   );
 }
 

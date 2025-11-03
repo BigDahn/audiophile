@@ -1,18 +1,25 @@
 "use client";
 
 import Checkout from "./Checkout";
-import CartSummary from "./CartSummary";
+
 import { FormProvider, useForm } from "react-hook-form";
 import { useCart } from "../_context/CartContainer";
-import { Modal, CartModalContext } from "../_ui/modal";
+import { CartModalContext } from "../_ui/modal";
 
 import EmptyCart from "./EmptyCart";
-import emailjs from "@emailjs/browser";
+
 import { reduce } from "../_lib/reduceFunction";
 import { useContext } from "react";
 import { nanoid } from "nanoid";
 import { shipping, VAT } from "../_lib/constants";
 import { toast } from "react-toastify";
+import dynamic from "next/dynamic";
+import Loading from "../loading";
+
+
+const CartSummary = dynamic(() => import("./CartSummary"), {
+  loading: () => <Loading />,
+});
 
 function CartCheckout() {
   const { cart } = useCart();
@@ -53,7 +60,7 @@ function CartCheckout() {
 
           if (result.success) {
             open("checkout");
-            toast.success("Order confirmation sent to mail");
+            toast,success("Order confirmation sent to mail");
             resolve(result);
           } else {
             open("");

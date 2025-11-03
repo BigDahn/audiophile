@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 const FadeInVariant = {
   initial: {
@@ -21,7 +21,7 @@ const FadeInVariant = {
 
 function SharedSubFooter({ style }) {
   return (
-    <motion.div
+    <m.div
       variants={FadeInVariant}
       initial="initial"
       whileInView="animate"
@@ -66,7 +66,7 @@ function SharedSubFooter({ style }) {
           className="object-cover rounded-md hidden md:flex lg:hidden"
         />
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 

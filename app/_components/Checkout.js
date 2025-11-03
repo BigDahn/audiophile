@@ -1,13 +1,11 @@
 "use client";
 
-import Image from "next/image";
-
+import dynamic from "next/dynamic";
 import { useFormContext } from "react-hook-form";
-import Input from "../_ui/Input";
-import BillingForm from "./BillingForm";
-import ShippingForm from "./ShippingForm";
-import FormErrorMessage from "./FormErrorMessage";
-import PaymentDetails from "./PaymentDetails";
+
+const BillingForm = dynamic(() => import("./BillingForm"));
+const ShippingForm = dynamic(() => import("./ShippingForm"));
+const PaymentDetails = dynamic(() => import("./PaymentDetails"));
 
 function Checkout() {
   const {

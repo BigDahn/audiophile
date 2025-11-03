@@ -1,10 +1,11 @@
 import Image from "next/image";
-import bg from "@/public/assets/home/desktop/image-hero.jpg";
 import Link from "next/link";
 
-import SharedItemList from "./SharedItemList";
-import SharedSubFooter from "./SharedSubFooter";
 import { getAllEarPhones } from "../_lib/services";
+import dynamic from "next/dynamic";
+
+const SharedItemList = dynamic(() => import("./SharedItemList"));
+const SharedSubFooter = dynamic(() => import("./SharedSubFooter"));
 
 async function EarPhoneContent() {
   const data = await getAllEarPhones();

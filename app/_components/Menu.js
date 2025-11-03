@@ -2,9 +2,6 @@
 import React, { useContext } from "react";
 import { CartModalContext, Modal } from "../_ui/modal";
 import Image from "next/image";
-import SharedItemList from "./SharedItemList";
-
-import { motion } from "motion/react";
 import Link from "next/link";
 
 function Menu() {
