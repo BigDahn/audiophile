@@ -13,7 +13,7 @@ export async function POST(request) {
     console.log("Environment check:", {
       SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
       TEMPLATE_ID: process.env.TEMPLATE_ID,
-      PUBLIC_KEY: process.env.PUBLIC_KEY,
+      PUBLIC_KEY: process.env.NEW_PUBLIC_KEY,
       PRIVATE_KEY: process.env.PRIVATE_KEY,
     });
 
@@ -22,7 +22,7 @@ export async function POST(request) {
       process.env.TEMPLATE_ID,
       formdata,
       {
-        publicKey: process.env.PUBLIC_KEY,
+        publicKey: process.env.NEW_PUBLIC_KEY,
         privateKey: process.env.PRIVATE_KEY,
       }
     );

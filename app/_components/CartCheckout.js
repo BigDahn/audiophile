@@ -16,7 +16,6 @@ import { toast } from "react-toastify";
 import dynamic from "next/dynamic";
 import Loading from "../loading";
 
-
 const CartSummary = dynamic(() => import("./CartSummary"), {
   loading: () => <Loading />,
 });
@@ -58,9 +57,11 @@ function CartCheckout() {
 
           const result = await response.json();
 
+          console.log(result);
+
           if (result.success) {
             open("checkout");
-            toast,success("Order confirmation sent to mail");
+            toast.success("Order confirmation sent to mail");
             resolve(result);
           } else {
             open("");
