@@ -60,8 +60,8 @@ function CartCheckout() {
           console.log(result);
 
           if (result.success) {
-            open("checkout");
             toast.success("Order confirmation sent to mail");
+            open("checkout");
             resolve(result);
           } else {
             open("");
